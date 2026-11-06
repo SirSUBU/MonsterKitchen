@@ -1,0 +1,1465 @@
+[
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/bowl.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/bowl.fbx",
+    "bytes": 25676,
+    "sha256": "20869bd47aa8af5726edbbe310ecfa0be45597d226c625af9cdac01e73959a9a"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/bowl_dirty.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/bowl_dirty.fbx",
+    "bytes": 28316,
+    "sha256": "3af79494246af537dd0976204af5730bd02183a73e701ffa41b554dea2b130a7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/bowl_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/bowl_small.fbx",
+    "bytes": 25564,
+    "sha256": "404b3bcb0a778f69fb85d8f2bb48c1e3f905679fbd64d0e4bf4f1b159849335e"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/chair_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/chair_A.fbx",
+    "bytes": 30156,
+    "sha256": "9065e629e84d7af37072cab3e140e9e925e91bc1b07cd23ff0887c38652c66f7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/chair_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/chair_B.fbx",
+    "bytes": 30156,
+    "sha256": "0ac058cc4bc18018378995fa529f95e79d9841655ce6fdd2e447c8e3c58827c8"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/chair_stool.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/chair_stool.fbx",
+    "bytes": 25948,
+    "sha256": "c835694ba317fab09928a88e43041fea9e6676f57947fdb24e62b608c40e1a6f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate.fbx",
+    "bytes": 22380,
+    "sha256": "f0743c72c90edc8263443eb2211452265b133b1f63d034af5b37040812c59657"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_buns.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_buns.fbx",
+    "bytes": 103676,
+    "sha256": "bc86bf6a2e3b79ea32be0c6eb442fd88c853c610a2d7b9583559dff8f9cebf0d"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_carrots.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_carrots.fbx",
+    "bytes": 75836,
+    "sha256": "c9f29425ce9d3032ce7639b90d8da875287087073e90eb90a0e5f58fb42e367c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_cheese.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_cheese.fbx",
+    "bytes": 56684,
+    "sha256": "ec61e7108c21a5c3e09d9bcd2f45110cfdd6052ecb8560523f5967a36f5c2ece"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_ham.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_ham.fbx",
+    "bytes": 40380,
+    "sha256": "0dc81c74add131497f8df89000a634126473f7d7459b6a5b5309e67637f615f2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_lettuce.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_lettuce.fbx",
+    "bytes": 85212,
+    "sha256": "4bf83a3261b7ea345173fe1230bbae303dab26c00e380d1eb28f4d36a376e7f6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_lid.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_lid.fbx",
+    "bytes": 21772,
+    "sha256": "520d78b469559fc67c1d4a5ddfa00505a2ea2a2b18725c1fdfe7b2e22ffdae43"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_onions.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_onions.fbx",
+    "bytes": 65148,
+    "sha256": "bbe69e5da6c4e3cefbd95886153343141f6579bba202bdd582da518c69d24483"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_potatoes.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_potatoes.fbx",
+    "bytes": 48140,
+    "sha256": "3621ee0503fac23f477bfb2736cd1afdf305a5b0ff279956fda694fb4abc99d0"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_steak.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_steak.fbx",
+    "bytes": 56444,
+    "sha256": "acbc9e6bf256e7a7ba2d9894060eb7602bbae1cdc9526c723959ca067fc3d5b1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/crate_tomatoes.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/crate_tomatoes.fbx",
+    "bytes": 86332,
+    "sha256": "f2e1a11cfb93a9430d76d4f9d786e5f44823571d1b5b61b7f96cbf7734f3bd39"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/cuttingboard.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/cuttingboard.fbx",
+    "bytes": 19548,
+    "sha256": "45e0044074de67f10c6e07a6c8a9035679ca00c1e66fe80f99147bb886cc3658"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/dishrack.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/dishrack.fbx",
+    "bytes": 24924,
+    "sha256": "d42a9ae13cdbbe99c67c3089594021e5dabad58043cc6360afae6f10a52e4b69"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/dishrack_plates.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/dishrack_plates.fbx",
+    "bytes": 41484,
+    "sha256": "d50b3fdea74aa298e451621e09ea9211f0d0a21e82a9d9867ae47d148d4a0037"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/door_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/door_A.fbx",
+    "bytes": 24060,
+    "sha256": "bc19136261893739506a637eb002fa8fa2ea485e5643f40da2e50e1eaa54ab48"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/door_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/door_B.fbx",
+    "bytes": 24012,
+    "sha256": "2b55ba17cf1963d3c7876dc6c795613011c1946e76473f035f6c63300f0d12f7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/extractorhood.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/extractorhood.fbx",
+    "bytes": 24028,
+    "sha256": "d6b9e7d02e905f0bbc2a7ef75736bf772413b36facc3893f275ba07203db9fde"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/floor_kitchen.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/floor_kitchen.fbx",
+    "bytes": 19564,
+    "sha256": "de0e4f51893535a42babf36d08b45813d8e9616bdfcc0d49a6d1866ea25542b1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/floor_kitchen_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/floor_kitchen_small.fbx",
+    "bytes": 19596,
+    "sha256": "de66d7361bfc7a1c52449ec05929c3a23506286fd43e2700a6ebceae2e809170"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_burger.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_burger.fbx",
+    "bytes": 68172,
+    "sha256": "994b85cdc66db9635a6bf88f231ae119f1f3e8579b8a062e360842e5ac6baf33"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_dinner.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_dinner.fbx",
+    "bytes": 58796,
+    "sha256": "3c0b1ae3af465fa6468dc6f41103cfea614a6c97f3362c1b855d91b828893af2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_bun.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_bun.fbx",
+    "bytes": 31868,
+    "sha256": "23cb53cd7043ec04f6585160509e324f2b7809cb0b67cc1c7d8eed4f48e98cc7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_bun_bottom.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_bun_bottom.fbx",
+    "bytes": 22812,
+    "sha256": "a9cae8ca84668d5b83050dedd5195779b3107470b0f6120965fbec7d7ad897f9"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_bun_top.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_bun_top.fbx",
+    "bytes": 28716,
+    "sha256": "5c917d0ae03c29094ec6e83925587990c17406467d95f8c09f08d14bad4a2d1e"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_burger_cooked.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_burger_cooked.fbx",
+    "bytes": 23836,
+    "sha256": "791f321711a090d483224409da5ca6bfa3a18453207d026dda54a04953f85dd6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_burger_trash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_burger_trash.fbx",
+    "bytes": 23868,
+    "sha256": "a54890950fdcddb0dfe19e521ecb182b9d8b08578907bbc7e58f8308064ce1ba"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_burger_uncooked.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_burger_uncooked.fbx",
+    "bytes": 23804,
+    "sha256": "2769fd96b2cb42f6eb039fcb49bf065a4828ab53fef31fe3b203114dd6330327"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_carrot.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_carrot.fbx",
+    "bytes": 28924,
+    "sha256": "0c2630370b31e869db46a688b67dc9377afb737c6667e747a715869e29e760ed"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_carrot_chopped.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_carrot_chopped.fbx",
+    "bytes": 35532,
+    "sha256": "cff5a3076fd785e399a639f91ba602b8e7ccda89899dbbcf8b4a13fdae2529c6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_carrot_pieces.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_carrot_pieces.fbx",
+    "bytes": 37116,
+    "sha256": "d1078cf8643ce0b93052ced1b6dc4de2bc24e4db959ed899ff6cb6ce1b6c4abb"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_cheese.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_cheese.fbx",
+    "bytes": 27420,
+    "sha256": "99d76bdb74caa1eb733328b299390f49fee10f9b551f0b780c753a804126dcd6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_cheese_chopped.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_cheese_chopped.fbx",
+    "bytes": 26988,
+    "sha256": "5d23ca2eec3e1be65cbaaab18937a10daab454331190770a164930fa2d1ea94d"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_cheese_slice.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_cheese_slice.fbx",
+    "bytes": 20172,
+    "sha256": "a005e4a6c80aa699a24f7db5ee384b0d50f939f52ddc3f37e84e9931187d1a08"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_ham.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_ham.fbx",
+    "bytes": 27628,
+    "sha256": "c0c71e26f5d73fd9d1be2dcd27d30b526fa2a2cec3b582c31f3457051145d8ab"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_ham_cooked.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_ham_cooked.fbx",
+    "bytes": 27628,
+    "sha256": "97213add28d88c4f271f72f44a16fc476aff304159d98b50fdc51ff4c6153a0c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_ham_trash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_ham_trash.fbx",
+    "bytes": 27724,
+    "sha256": "13c01f7c66064beb3015669e48e0e405551714bd206713991e7886b8bb3f8323"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_lettuce.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_lettuce.fbx",
+    "bytes": 34348,
+    "sha256": "4ddc47772821df98779391fe757413deb322cc61fadb1fac961dfad70f356748"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_lettuce_chopped.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_lettuce_chopped.fbx",
+    "bytes": 35532,
+    "sha256": "4b118e91ba27440067452ee2d7d34ba91308427b6fc83d266187bf199e2e006f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_lettuce_slice.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_lettuce_slice.fbx",
+    "bytes": 23228,
+    "sha256": "1b33d554bcb8040a0cc957fd73241fb415b2db65b0010c94d5a2168789cb5840"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_onion.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_onion.fbx",
+    "bytes": 26556,
+    "sha256": "4513d0a5e610af67568288ebeafcc278dd12b49f157a4a1bef11fd4fa7a15bb0"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_onion_chopped.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_onion_chopped.fbx",
+    "bytes": 38844,
+    "sha256": "76e2bc81385e3adfe4517fe9bdaaf53b20a3f37482462304752628db14c6c69c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_onion_rings.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_onion_rings.fbx",
+    "bytes": 31196,
+    "sha256": "5219aa890e627eade77051b0442c6cc334505b2feb98443a46085a2fc9ad5664"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_potato.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_potato.fbx",
+    "bytes": 22844,
+    "sha256": "95a32572ef816cb63a37247a09c826fad1e2bbcbd23737279d8c4779a61848b6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_potato_chopped.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_potato_chopped.fbx",
+    "bytes": 28476,
+    "sha256": "1ef825b32017a63159386168f13c944824dd6670c6d180893b464201bd4a7a2f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_potato_mashed.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_potato_mashed.fbx",
+    "bytes": 19980,
+    "sha256": "aaec2379fa3f05d34c8de7f7ae0c365688ffe1daeea7fad349e7bfbc78eec773"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_steak.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_steak.fbx",
+    "bytes": 29820,
+    "sha256": "767b7b5b67640001f16749e872c4f7bf3322dd7c9d52cc0e80388916ca61b760"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_steak_pieces.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_steak_pieces.fbx",
+    "bytes": 25916,
+    "sha256": "ba084d27a85767799f4cc50add3d988756529acc9a7eac725fa71de64ffd93c9"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_tomato.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_tomato.fbx",
+    "bytes": 31004,
+    "sha256": "f9020d40d7bbb66beff617ff959bb0d10692e30829317e135f109d9c44873cf1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_tomato_slice.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_tomato_slice.fbx",
+    "bytes": 24316,
+    "sha256": "be18aa229cdd8edbf054fa48b26d7ed5466baa7b8fff7c3928db44deca1ebe2b"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_tomato_slices.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_tomato_slices.fbx",
+    "bytes": 30876,
+    "sha256": "fb9627368b5afe0f6ad988d33f18b4b1c61285c45889839792c4a18e52fd9973"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_vegetableburger_cooked.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_vegetableburger_cooked.fbx",
+    "bytes": 28108,
+    "sha256": "0717ca06988b6459a499301ee8788929f09202c7b7f1ebfc02500886fb65d7f6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_ingredient_vegetableburger_uncooked.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_ingredient_vegetableburger_uncooked.fbx",
+    "bytes": 28028,
+    "sha256": "86e6f5facaf9cf1de459d41c1b190176c64bb4af9a23c10a072062fa91d8a0b1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_stew.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_stew.fbx",
+    "bytes": 36428,
+    "sha256": "faa0b97b94afa2f048d5e1297cc4f1c758bc630db5c470e248be628ab404a480"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/food_vegetableburger.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/food_vegetableburger.fbx",
+    "bytes": 70716,
+    "sha256": "af387b4fdc048f5e690c1872d0d8adae16f3e4f18abe12f5081c2bf512b24953"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/fridge_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/fridge_A.fbx",
+    "bytes": 40268,
+    "sha256": "59c6f95f9f5e3ff5cfae0782a5308f820a70fa03a47f5a7c0cbe9f48839cf2ca"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/fridge_A_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/fridge_A_decorated.fbx",
+    "bytes": 101548,
+    "sha256": "20fd81cb3ade4a4ed7d58386c1bb664aa14461286bdb784b2a0fe35332ff0be5"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/fridge_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/fridge_B.fbx",
+    "bytes": 32588,
+    "sha256": "fcb1fb14dc67fea031995044477dd3edcda73b9e941ab55bc277f685d17c9df1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_A_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_A_large.fbx",
+    "bytes": 23132,
+    "sha256": "86f8d56c898769e6ea5c4691696e6e80c30a8244ce7ac8c651d135a9afa21982"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_A_medium.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_A_medium.fbx",
+    "bytes": 23660,
+    "sha256": "20deffa8cb4355d76083f68cbc39ecd3155d79e92d13773d2ad538651bbcdbd0"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_A_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_A_small.fbx",
+    "bytes": 23692,
+    "sha256": "193fd1932a27e66d626cdfa26f74989808fa795b74632edf5c900b354b756dc4"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_B_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_B_large.fbx",
+    "bytes": 23084,
+    "sha256": "b3e62a688fce0acc6127cd226819eef003af782d6ba07c8235d7cb3d6d6840b2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_B_medium.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_B_medium.fbx",
+    "bytes": 23628,
+    "sha256": "873a590fdaba512ffa8b57c69e19ee6834acbcec2dc208cbdf9696dd54bdcc59"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_B_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_B_small.fbx",
+    "bytes": 23660,
+    "sha256": "374e23cce0300330951b54bf0615593fcbaf1a48197d88e80b3cf5dadb3e9784"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_C_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_C_large.fbx",
+    "bytes": 23084,
+    "sha256": "9092c4a391edb9f079acbe4beced681d68bcd7a02970e61353dfd0e473018a1d"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_C_medium.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_C_medium.fbx",
+    "bytes": 23628,
+    "sha256": "ff59caaef8371b9e09ccb5c999998ddb2faf1a7bad2c94c6ecd4d04c26759c4f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_C_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_C_small.fbx",
+    "bytes": 23660,
+    "sha256": "8ef21bea28ac44e85df4025011551528a3074c771ab4456c46b937e061ea9267"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_D_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_D_large.fbx",
+    "bytes": 23084,
+    "sha256": "5ecc3d3a215dc4394ecc88fc181b9ec72c9e55597bf951f4b6117ec8d82d929a"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_D_medium.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_D_medium.fbx",
+    "bytes": 23628,
+    "sha256": "965985c641bd2d895cac89032456b7e60dc085806332117750635e05839c70fc"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/jar_D_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/jar_D_small.fbx",
+    "bytes": 23644,
+    "sha256": "c836c69c5b79cf091107cfe2448540462a8380f63949f3784e9ae0563705b2a7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/ketchup.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/ketchup.fbx",
+    "bytes": 23372,
+    "sha256": "f0fcf286670348360e9899b32724f22f68b43ab4e2f33d9e386b4dc1b931073a"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencabinet.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencabinet.fbx",
+    "bytes": 22748,
+    "sha256": "bdf0caf161665a2daf83ba3b563cfc2fcfd2905fa8a097e2b7db786da8d4188e"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencabinet_corner.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencabinet_corner.fbx",
+    "bytes": 23756,
+    "sha256": "e8871c9fcfe3d749bae5a26ef36aaa894ab7c4e3c9f9f6dd7ee0579a7d0e35f3"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencabinet_corner_half.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencabinet_corner_half.fbx",
+    "bytes": 23644,
+    "sha256": "5476164c83801a3d70e03128e92ff2dc6b2e4ffbe821f4c01eb382f628565c33"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencabinet_half.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencabinet_half.fbx",
+    "bytes": 22732,
+    "sha256": "920bcf9f3f9af8c17d2ffa15675080cd98071f1dbe384286f42fb3bf83da17d7"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_innercorner.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_innercorner.fbx",
+    "bytes": 19500,
+    "sha256": "6232842c983a7a049c26dc2db322bebbd3bac159513107933f9d6c0ef6cbc186"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_innercorner_backsplash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_innercorner_backsplash.fbx",
+    "bytes": 20044,
+    "sha256": "5d7631876ffca09d986b1d9b1f190b199b7c636ec19cbdbfc299315a2bebb304"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_outercorner.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_outercorner.fbx",
+    "bytes": 19452,
+    "sha256": "c8e8b2f9dab30109eab653f9d450f237bed67ddd05a4b48114c8ad5d3f9a6e88"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_outercorner_backsplash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_outercorner_backsplash.fbx",
+    "bytes": 20012,
+    "sha256": "1e993f75e3221fbe9679b8c5803ea209e2224de76d4eafe2b2ffaf42fd249af2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_sink.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_sink.fbx",
+    "bytes": 38364,
+    "sha256": "590c88adada2ec992fae2c54724c3a91950a7e64dad10925caaed7dd742fee19"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_sink_backsplash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_sink_backsplash.fbx",
+    "bytes": 38668,
+    "sha256": "36891433f04cf12ee8ffe560b8d8f5cc2fc571e4cc81955233d114721aa799c1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_A.fbx",
+    "bytes": 23292,
+    "sha256": "3395c96d64aa73b79317d4c3e4d1e593809753c0f86952b99d35333e73ced7b8"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_A_backsplash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_A_backsplash.fbx",
+    "bytes": 23644,
+    "sha256": "06c102eac3b2f2653ad1c9bdf54a649105024513fe6c622079fffb292156da40"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_A_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_A_decorated.fbx",
+    "bytes": 59884,
+    "sha256": "83897f26e421db6f20fa7b114f1593492c7c45558e7a1ad158926fa6ae081147"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_B.fbx",
+    "bytes": 22940,
+    "sha256": "a723d0f6b0403273586c5d6ae78f1fa4203a6bc4229217025ba1fb42fd22b649"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_B_backsplash.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_B_backsplash.fbx",
+    "bytes": 23276,
+    "sha256": "43384e919c1e380a26a6fa08b1422c75c6c42dac70b772817a59ff1e7ecc6b41"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchencounter_straight_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchencounter_straight_decorated.fbx",
+    "bytes": 43772,
+    "sha256": "8a87b0c7a43e42ca2e297b82dc8396a08f23b456aa7dc87a26102d3b4f556913"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_A.fbx",
+    "bytes": 24908,
+    "sha256": "cf9be4989e338f3c3413c9d27e42102614cf47c5633ca673d290a3f8a7a5a761"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_A_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_A_large.fbx",
+    "bytes": 24956,
+    "sha256": "d2e5450a682c881ba5a46d10f05935b58bccadb83165dc37083efcdaf623577d"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_A_large_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_A_large_decorated.fbx",
+    "bytes": 80124,
+    "sha256": "3c1962fb007a435352658a1a1b25d9a3c3e2eebb4a30ab65aeba00548caa7e5c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_B.fbx",
+    "bytes": 24908,
+    "sha256": "1024d598a1662d6bbda6fec4a7da7f52977fedc940e3b6811baf3d45da801b0c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_B_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_B_large.fbx",
+    "bytes": 24956,
+    "sha256": "bc2cbb4d6f01eaa9be3f94a1f62df2043ff226b6f316db2afcd048def9b53bb9"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_sink.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_sink.fbx",
+    "bytes": 40012,
+    "sha256": "ae72069d89b642ff8c95ae995b00f91b2616627567791074465082203e416266"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_sink_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_sink_large.fbx",
+    "bytes": 43116,
+    "sha256": "568a706394121d575938c4f68cdd6f81c0e8d42fb0edde71875402d6e22d6279"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/kitchentable_sink_large_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/kitchentable_sink_large_decorated.fbx",
+    "bytes": 100124,
+    "sha256": "d841dc9f3e16f1828e698c460ccd862f739b386e2e6683e3c4ad9ea8f3094b88"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/knife.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/knife.fbx",
+    "bytes": 22220,
+    "sha256": "d85658db30d02bbfe6015f55cc8e31db83472fa38e6dbbcbf661b205cef58daa"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/lid_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/lid_A.fbx",
+    "bytes": 24124,
+    "sha256": "120c3347cc2691962ea432248e9a4b0b4f73721320aff6ed5be00037fee90b7a"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/lid_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/lid_B.fbx",
+    "bytes": 24124,
+    "sha256": "a8930912c1e2ca100e62464f1e94e114930e8a1692a303f5873a0908e2774711"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/lid_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/lid_large.fbx",
+    "bytes": 24428,
+    "sha256": "05d8a4eecfdbb5f9858e3529b71ed8c810f02bacb67f15025b38a05ef3c60c95"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/menu.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/menu.fbx",
+    "bytes": 21388,
+    "sha256": "890911720308cfa99ded22a8ef5669ed975838171e5f6397b839fee32d3d26bc"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/mustard.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/mustard.fbx",
+    "bytes": 23372,
+    "sha256": "24b77b99d74cf06d86a006d3cad977e037041787236f8a54435d3ef60e584117"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/oven.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/oven.fbx",
+    "bytes": 35004,
+    "sha256": "1e1a3bae3259f006c6cbfa1772c22b468fc964b22eb79041675d87dc54fa13a1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pan_006.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pan_006.fbx",
+    "bytes": 26380,
+    "sha256": "398946ce4875d1f22a33a3f58849b90cdb9d3841f9a35a8051aee179623de9e1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pan_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pan_A.fbx",
+    "bytes": 26924,
+    "sha256": "af1e9b5e25eb08d2be9a48e881d1630846062b15fe3fef93a55d18d86492cfee"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pan_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pan_B.fbx",
+    "bytes": 26908,
+    "sha256": "5499f42b0a4981e4ee467d0684e6410b4a354588c440ef056cd74c326264428c"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/papertowel.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/papertowel.fbx",
+    "bytes": 24716,
+    "sha256": "c6b2ed8d051f6d43fb00ea1f73b6d8f630b20152a769d5438de52c568c8234f8"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pillar_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pillar_A.fbx",
+    "bytes": 19340,
+    "sha256": "0498d1b21cf6109999ad09e98d307782d7a5d3e707b7b3631db7b0fcd6f4ab60"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pillar_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pillar_B.fbx",
+    "bytes": 19356,
+    "sha256": "e89b261b16a78cbef77080bcfa485ba8c03de831176a0b5f9f874554a71851f6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/plate.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/plate.fbx",
+    "bytes": 22700,
+    "sha256": "90ada96c9b2a8cd79ef2133771878f0d490631e113317fe7f35c010b1e687cde"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/plate_dirty.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/plate_dirty.fbx",
+    "bytes": 26972,
+    "sha256": "a5de06fab356b6f7e06909a21319bec1ffd6d5faeb02e80179d2b9bab021c875"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/plate_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/plate_small.fbx",
+    "bytes": 21852,
+    "sha256": "56e4915457073ca80a7488a0e9e56c429f7679e7f90e57ab03b6105b91dc9f12"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pot_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pot_A.fbx",
+    "bytes": 27836,
+    "sha256": "7eed352442485cdc8bd89dc04f354b680047d4fed0e17777f0735bcfa7b58dc2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pot_A_stew.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pot_A_stew.fbx",
+    "bytes": 37964,
+    "sha256": "c26839b7ad7d1cba0ba19afbca3f88e5d9e625f3cd6302e08a721aa9cc4a43d1"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pot_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pot_B.fbx",
+    "bytes": 27836,
+    "sha256": "2849e975fbdf3f853fdb50b8a184b1184ece2f14419463e278865212478cceee"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pot_B_stew.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pot_B_stew.fbx",
+    "bytes": 37964,
+    "sha256": "aa654fa60a7855f921d87576edf822e7865186763572fdf0389dd433ec04f047"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/pot_large.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/pot_large.fbx",
+    "bytes": 30108,
+    "sha256": "c6861a24c89d53c82c80eea70b1bbed6256fffdcf57b64d92f54e9682ac1bd1d"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/restaurantbits_texture.png",
+    "path": "ThirdParty/KayKitRestaurant/Textures/restaurantbits_texture.png",
+    "bytes": 21070,
+    "sha256": "1bfff8f880c5e5e1b793bc46fa1f91149b7f70766174a817b3d5962495c5e40f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/shelf_papertowel.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/shelf_papertowel.fbx",
+    "bytes": 25548,
+    "sha256": "499d823522135520d51a2ae269f6a98ed568873c0692c477ea2b7a1324027ecf"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/shelf_papertowel_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/shelf_papertowel_decorated.fbx",
+    "bytes": 39948,
+    "sha256": "297ee16ad43fa29e12d12b18a3ac4aef7e4e586ceb036d19c73ed5eb10bb081a"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stew_bowl.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stew_bowl.fbx",
+    "bytes": 29116,
+    "sha256": "179a172f93d8719169ff63650fd6268042e597519a3541b76a67bbe109fd3623"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stew_pot.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stew_pot.fbx",
+    "bytes": 29036,
+    "sha256": "ff20f6ab2d9b797a1b25b7409142459620ebbc6d52de1d054fc7fe55a489456f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stove_multi.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stove_multi.fbx",
+    "bytes": 47628,
+    "sha256": "28f084cb17bac1b54e5690734e3779fe82432f1ddc9b44425cc92533d3b16943"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stove_multi_countertop.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stove_multi_countertop.fbx",
+    "bytes": 36124,
+    "sha256": "1200795c506e768605a6fb294da0a4f2063c4c69514e874c68d4dbdd79b8afb0"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stove_multi_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stove_multi_decorated.fbx",
+    "bytes": 84556,
+    "sha256": "cc086739cd018156931cc23e3c6a82ae8f8eeb071e22d0e185cc5c840d67cda6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stove_single.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stove_single.fbx",
+    "bytes": 38492,
+    "sha256": "f102fda192433e442b578b813f1bf5be1668f37b5f938ac4fb8bf15eeffdbd1e"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/stove_single_countertop.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/stove_single_countertop.fbx",
+    "bytes": 27292,
+    "sha256": "795185fb45d04f1ba171c23b0e8ed537e1d4835b7faee0ef387d93e171614893"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/table_round_A.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/table_round_A.fbx",
+    "bytes": 27356,
+    "sha256": "de6c036a4644ca9f98b8ee1870d061c0826963102008a5a837c93011be12b9b2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/table_round_A_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/table_round_A_decorated.fbx",
+    "bytes": 151244,
+    "sha256": "9bc1b8ef86191cf3ea66e667e341886a83fc475d002277b26981055b8cb979a5"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/table_round_A_small.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/table_round_A_small.fbx",
+    "bytes": 27420,
+    "sha256": "a732b0509db89e7c7fc57f296d152e253b4ea03996aff0d648489f7bd8ffb8b9"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/table_round_A_small_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/table_round_A_small_decorated.fbx",
+    "bytes": 39564,
+    "sha256": "179c46b39eee017ee22495dbf264729701ce92fc70e17768bc7aa4ee1c6a6e6f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/table_round_B.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/table_round_B.fbx",
+    "bytes": 26828,
+    "sha256": "a3ac705f7b2b98a1e1ace94588cd08df0274317755b1b218ddc2c85b33bbb9cf"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/towelrail.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/towelrail.fbx",
+    "bytes": 23132,
+    "sha256": "ad901ad965571756c06f3c86f831fff46c6d37c35eda50d1e87b373685efa5ff"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall.fbx",
+    "bytes": 20556,
+    "sha256": "b24739f29a01f949e0f8cd7a6ca754bd90119b490d4a16e71cf890fb066cdce6"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_decorated.fbx",
+    "bytes": 131196,
+    "sha256": "c70a3f238b45daed1379254f2022959906351233d7b557d201bf227c965883fe"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_doorway.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_doorway.fbx",
+    "bytes": 22812,
+    "sha256": "77d637670fa2d40120bd24ff521dfb59e85c451c7cfc879fc170efd5db1f21bf"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_half.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_half.fbx",
+    "bytes": 20556,
+    "sha256": "2073d40d8f9159a80f7e5036259a7f451d7b1fb176cded7c05b3ffbabd622132"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_orderwindow.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_orderwindow.fbx",
+    "bytes": 23868,
+    "sha256": "7603e2c3c02067f46d923429f53ad2c14606e53e44a58a8c16b2f668b527af32"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_orderwindow_decorated.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_orderwindow_decorated.fbx",
+    "bytes": 36396,
+    "sha256": "ccbdbff28ae189e69b6acc542d03750198a0276cd7a542f67147010ea3e1b81f"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_window_closed.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_window_closed.fbx",
+    "bytes": 23564,
+    "sha256": "1f38bdc551a06d67750441851a7bc6f1e7a9cf4710dabecf1e4fab8e526334c2"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx (unity)/wall_window_open.fbx",
+    "path": "ThirdParty/KayKitRestaurant/Models/wall_window_open.fbx",
+    "bytes": 23420,
+    "sha256": "8a8b66c63340e03d067ed93cce7002d9598b4c4e4b0950d093e82e41c7f05cb3"
+  },
+  {
+    "archive": "KayKit_Restaurant_Bits_1.0_FREE.zip",
+    "entry": "KayKit_Restaurant_Bits_1.0_FREE/License.txt",
+    "path": "ThirdParty/KayKitRestaurant/License.txt",
+    "bytes": 897,
+    "sha256": "47a1812de438d7452117753d0efbe734c5293db00859b605679128725acf86ef"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/5 - November 2024 - Witch/characters/Witch.fbx",
+    "path": "ThirdParty/KayKitSeries5/Witch/Witch.fbx",
+    "bytes": 455068,
+    "sha256": "590bd085bf4994cd838d0f042eb9f8ef5bc4d21bf98310e747392a2be37be881"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/5 - November 2024 - Witch/textures/witch_texture_A.png",
+    "path": "ThirdParty/KayKitSeries5/Witch/witch_texture_A.png",
+    "bytes": 13088,
+    "sha256": "c44225971635221536e81e2ecda249bd46da6fa62df06c971a7e29702acad974"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/5 - November 2024 - Witch/textures/witch_texture_B.png",
+    "path": "ThirdParty/KayKitSeries5/Witch/witch_texture_B.png",
+    "bytes": 13678,
+    "sha256": "71e9a1b0037155bc6fc2fc9c8c7acaa9a3401e879be3d480a622780ec9ccc4d5"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/4 - October 2024 - Vampire/characters/Vampire.fbx",
+    "path": "ThirdParty/KayKitSeries5/Vampire/Vampire.fbx",
+    "bytes": 429852,
+    "sha256": "69fe7306dcc1ac73c1673bc5e737aee89d94ca7ba9153e73c572477755babb05"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/4 - October 2024 - Vampire/textures/vampire_texture.png",
+    "path": "ThirdParty/KayKitSeries5/Vampire/vampire_texture.png",
+    "bytes": 13454,
+    "sha256": "456bff38233199fc7b5c2b66941a6f575673e3eaea15b81fe1f6a41b433261c6"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/12 - June 2025 - Tiefling/characters/Tiefling.fbx",
+    "path": "ThirdParty/KayKitSeries5/Tiefling/Tiefling.fbx",
+    "bytes": 559772,
+    "sha256": "f9216648dfa4bad99e91c760e6c54cab3ea8dc000007b4bc14ab4edacd8f4b6d"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/12 - June 2025 - Tiefling/textures/tiefling_texture.png",
+    "path": "ThirdParty/KayKitSeries5/Tiefling/tiefling_texture.png",
+    "bytes": 10183,
+    "sha256": "14075d962c2b7228bec8d0e1bcd5e038222f7811aa2535b72dfb22b368e241b9"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/12 - June 2025 - Tiefling/textures/tiefling_texture_b.png",
+    "path": "ThirdParty/KayKitSeries5/Tiefling/tiefling_texture_b.png",
+    "bytes": 10379,
+    "sha256": "98ca0d63f7eaa60e1063bf764bda7beb661898c247656c35eaebdda840ae7324"
+  },
+  {
+    "archive": "KayKit_Mystery_Monthly_Series_5_(1.1).zip",
+    "entry": "KayKit_Mystery_Monthly_Series_5/License.txt",
+    "path": "ThirdParty/KayKitSeries5/License.txt",
+    "bytes": 1583,
+    "sha256": "a92d6597354e0f40a85c46fe2b23aaf9d804b18e5fdd54ba199fc8dcbc2c95b6"
+  },
+  {
+    "archive": "KayKit_Character_Animations_1.1.zip",
+    "entry": "KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx",
+    "path": "ThirdParty/KayKitAnimations/Medium/Rig_Medium_General.fbx",
+    "bytes": 2382700,
+    "sha256": "0a3420d6cbbf00694e625d84e55c2afbf0a7284c4280c46642f62f066dbd3950"
+  },
+  {
+    "archive": "KayKit_Character_Animations_1.1.zip",
+    "entry": "KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx",
+    "path": "ThirdParty/KayKitAnimations/Medium/Rig_Medium_MovementBasic.fbx",
+    "bytes": 1821068,
+    "sha256": "6b0339d304a07d87ac0a02028d1822078e581924eddf9c7c7f2049132ad89ec4"
+  },
+  {
+    "archive": "KayKit_Character_Animations_1.1.zip",
+    "entry": "KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_Tools.fbx",
+    "path": "ThirdParty/KayKitAnimations/Medium/Rig_Medium_Tools.fbx",
+    "bytes": 4444524,
+    "sha256": "83fe62f77d03caa1b221d3ce1e7b9377f486cff978204061784f9944caa00a32"
+  },
+  {
+    "archive": "KayKit_Character_Animations_1.1.zip",
+    "entry": "KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_Simulation.fbx",
+    "path": "ThirdParty/KayKitAnimations/Medium/Rig_Medium_Simulation.fbx",
+    "bytes": 2325724,
+    "sha256": "7a75d775e966f28e0d365147c3cd844d3641b40fa97bc591f33b9fc609463142"
+  },
+  {
+    "archive": "KayKit_Character_Animations_1.1.zip",
+    "entry": "KayKit_Character_Animations_1.1/License.txt",
+    "path": "ThirdParty/KayKitAnimations/License.txt",
+    "bytes": 1548,
+    "sha256": "373b159044d1a886ed15f57ca5a7673ba14e2623c460283452705f2056912ed9"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/tip-jar.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/tip-jar.wav",
+    "bytes": 48554,
+    "sha256": "330c6a6c3d2a93bc3fe620d7fec0b0272eabbe886e039cd0d009e05d0d14a49a"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/knead-dough.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/knead-dough.wav",
+    "bytes": 68840,
+    "sha256": "2b0a1835751a993d4eea4a49f55e381b1d3f9ecbdef5c96a492901d53a85102b"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/customer-happy.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/customer-happy.wav",
+    "bytes": 136754,
+    "sha256": "1afb386b55205f68eeb3c771ad94385a1708b4eb4a06248a544824521a572250"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ui-error.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ui-error.wav",
+    "bytes": 34442,
+    "sha256": "6dc16242fdf9e0bea09e06355820974da00ae20c343e7aeb8c4aac8a873e7196"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ui-click.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ui-click.wav",
+    "bytes": 6218,
+    "sha256": "b4a3aab82346cedd41f1dd512251238c97942d831d3be6cf07b26ff5d75c2819"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/cash-register.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/cash-register.wav",
+    "bytes": 86480,
+    "sha256": "2d165a5b8ac18aedaf5822cd319d4359b0917430c82784009f373d029532483a"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/egg-crack.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/egg-crack.wav",
+    "bytes": 32678,
+    "sha256": "273fd74730faba1d5ceabce53aa1a61f520e85198112963e87efa1d6715ee90b"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ice-cubes.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ice-cubes.wav",
+    "bytes": 44790,
+    "sha256": "8b0dfc3bb908f6fb53b93a637367ca7fd87ec996aa4f2ab8270eefc7983d3422"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/whisk.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/whisk.wav",
+    "bytes": 80306,
+    "sha256": "9eab82fd5155408e2c010dab8a9c9b80ca26b210a29ef4097500e644074bc27d"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/menu-open.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/menu-open.wav",
+    "bytes": 36206,
+    "sha256": "4ad93acdb491c6ccf108ffadaf51cb7197a8524951d90d6d81e2424d4a4a540f"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/spoon-stir.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/spoon-stir.wav",
+    "bytes": 72912,
+    "sha256": "4373374ee837e2ca5b7864a43e3648971b7dbe66505251beddf36e4caa1768a7"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/oven-open.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/oven-open.wav",
+    "bytes": 81188,
+    "sha256": "6e591e99d15207ddf14b25eaf927d27d05de8c07a164c4ddf28f6e1b8aa40d71"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/oven-timer.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/oven-timer.wav",
+    "bytes": 102356,
+    "sha256": "64f34ccf905730fc946dabe98467aba46d132b0856851e9a5f19ad7850a08052"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/milk-steam.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/milk-steam.wav",
+    "bytes": 160568,
+    "sha256": "1c6fba0e67a0abd0d70243371c91b2aaa51dd3c7efafc685a1cc5239ef3878ac"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/order-ready.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/order-ready.wav",
+    "bytes": 59138,
+    "sha256": "f2ed9bfb5cddb25c66ca9efd6edcabefa2a5f6c6cba4ba4bbddf86761339d4ce"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ui-hover.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ui-hover.wav",
+    "bytes": 4894,
+    "sha256": "b7a7072f77901e63e3ae22de6ca6849427fa5a3248bed1f19446bad7ee11a62b"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/cup-place.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/cup-place.wav",
+    "bytes": 18566,
+    "sha256": "61866805a624f033ebae3945d2ce8d67f904fd3d77120d957da49313acb4a517"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ui-confirm.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ui-confirm.wav",
+    "bytes": 31796,
+    "sha256": "126954f963980ddce3c3ab5c9109becf6e22775c0cc5ecbf17cc44f75ca1a4cf"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/oven-close.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/oven-close.wav",
+    "bytes": 56492,
+    "sha256": "1b6996306518ce1094a23ed0da4b5694f0c316cacb519ffc633c63c90790b270"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/kettle-whistle.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/kettle-whistle.wav",
+    "bytes": 125286,
+    "sha256": "88d5fb41570526e086af54d2fb110734084f34a2dcd7a4458abb74092652ca86"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/serve-dish.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/serve-dish.wav",
+    "bytes": 74132,
+    "sha256": "89cd0e2ffbe84263fc9ba319136a15aa6e605fafe8ee4cd4bf3e0939b3375402"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/jingle-day-earnings.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/jingle-day-earnings.wav",
+    "bytes": 192318,
+    "sha256": "d8b746cd12f91311d61d8073cc5dedf01c89c17095ded24c1db152584160519e"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/customer-unhappy.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/customer-unhappy.wav",
+    "bytes": 55610,
+    "sha256": "86670ad16100f94bbe5b3366724b53b18dfa2be662510f398e2163be57dd8556"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/new-order.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/new-order.wav",
+    "bytes": 52082,
+    "sha256": "ee986c9ccf1558b90ae76866c6a1f2ae9f4e6a8e2d0efa903c70eafd6be73891"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/recipe-unlocked.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/recipe-unlocked.wav",
+    "bytes": 70604,
+    "sha256": "0b17b263da70bfe4eb732e141419d32b43f95dc1cb741a336f7ad1a3acfcb4f4"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/jingle-cafe-open.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/jingle-cafe-open.wav",
+    "bytes": 130580,
+    "sha256": "7763aeff622b6845c0f14927678a42235da22caee4cafd16e51c14672c6c6a2a"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/jingle-perfect-order.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/jingle-perfect-order.wav",
+    "bytes": 105002,
+    "sha256": "2a75855f622c03bcbcfae53c2c65feb3fe1eb0f672f65518eb1849b2cbdadd2a"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/pour-coffee.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/pour-coffee.wav",
+    "bytes": 98828,
+    "sha256": "3858ad7e21c580e10eb1b2912d4efc81e4616ccd33d9567dacece6b672138461"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/menu-close.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/menu-close.wav",
+    "bytes": 36206,
+    "sha256": "5484ec73385bb56867c5f62c1e165bcf955e907c127083062b82ebefb5241a0a"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/coins.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/coins.wav",
+    "bytes": 57374,
+    "sha256": "5f26a0e82ffbb14da9a421165ec63030012e57db70fddd23cea82308bab4f0e5"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/rolling-pin.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/rolling-pin.wav",
+    "bytes": 81188,
+    "sha256": "9999281103dc0ff124ba62011470835c144e8de53c073d8a4d524fb5eef81288"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/sizzle.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/sizzle.wav",
+    "bytes": 178208,
+    "sha256": "a8d955a27b5abd27798a31800532ab3bdead1ccbbff8caa3132a8090bc5e759e"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/door-bell.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/door-bell.wav",
+    "bytes": 82952,
+    "sha256": "62fda48c3c6af0b24b7d9bfcfa500402f1b78ae0d73f82e84c113ce055afe5c4"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/sugar-spoon.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/sugar-spoon.wav",
+    "bytes": 43260,
+    "sha256": "44f6853ad412e531b0a792e36d6ae9412022ff2328c4336bffbea3dd1ec4dd39"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/receipt-print.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/receipt-print.wav",
+    "bytes": 63546,
+    "sha256": "5d43817e1cae360d50715fe1ce98ea311f70d616981226d28f4a661d0cc3ca92"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/espresso-pour.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/espresso-pour.wav",
+    "bytes": 160568,
+    "sha256": "31ca57f5423b1967867980e0eb400f241c56a901d374f84a82bce79e31a30275"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/pour-tea.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/pour-tea.wav",
+    "bytes": 90008,
+    "sha256": "d22795561a06f668867a19b8d65427f04fc8c04d8e61d94f8862312838482322"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/chop-knife.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/chop-knife.wav",
+    "bytes": 57374,
+    "sha256": "8f2d4f079f71eb46779a3932da89d0a5cee1a2488adea0b87651f95d60588b76"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/ui-back.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/ui-back.wav",
+    "bytes": 31796,
+    "sha256": "ca5c1a7665946ba76399d66ed62be9093629645c7ee6ee1eb9ab25ed3fef175b"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/plate-place.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/plate-place.wav",
+    "bytes": 18566,
+    "sha256": "27c7ea69a5ab6a473a5f7368b1f8e5e6afa7f81802cd70c8203e590273222f13"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/cup-clink.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/cup-clink.wav",
+    "bytes": 49436,
+    "sha256": "b9f0b68f3c03bdc4d3557b51dce856837284e35dfd4df31dffd72fe74ffec088"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/jingle-cafe-close.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/jingle-cafe-close.wav",
+    "bytes": 294632,
+    "sha256": "28492670a6d01e6b1cc287d352713cbeab88ad97c48ec243422bf8445f2d97f2"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/sfx/coffee-grinder.wav",
+    "path": "ThirdParty/CozyCafeSFX/SFX/coffee-grinder.wav",
+    "bytes": 142928,
+    "sha256": "c9575a51296d2d20c1e12cf7325e12dadfcda6d10d00d727b418fe406481c172"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/LICENSE.txt",
+    "path": "ThirdParty/CozyCafeSFX/LICENSE.txt",
+    "bytes": 491,
+    "sha256": "6855e180b9784f91f1d9f93af33b4df035c906ad80e4b432663f2e108e1503bc"
+  },
+  {
+    "archive": "cozy-cafe-sfx.zip",
+    "entry": "cozy-cafe-sfx/README.txt",
+    "path": "ThirdParty/CozyCafeSFX/README.txt",
+    "bytes": 2389,
+    "sha256": "6bdb4e45f155541ba34165ce711ab1130436ff168fa82cd056ded54ec13bf5de"
+  },
+  {
+    "archive": "cozy-cafe-sfx-ambience.zip",
+    "entry": "cozy-cafe-sfx/ambience/ambience-kitchen.wav",
+    "path": "ThirdParty/CozyCafeSFX/Ambience/ambience-kitchen.wav",
+    "bytes": 2822444,
+    "sha256": "b839d4f15b52f41727459d86669025f4864afab87056dbf0972d4bb3965ebd66"
+  },
+  {
+    "archive": "cozy-cafe-sfx-ambience.zip",
+    "entry": "cozy-cafe-sfx/ambience/ambience-rainy-cafe.wav",
+    "path": "ThirdParty/CozyCafeSFX/Ambience/ambience-rainy-cafe.wav",
+    "bytes": 2822444,
+    "sha256": "511c74085affa24af12b784ca7b4522d14f80be997dbafafece64e3a12c55da6"
+  },
+  {
+    "archive": "cozy-cafe-sfx-ambience.zip",
+    "entry": "cozy-cafe-sfx/ambience/ambience-coffee-bar.wav",
+    "path": "ThirdParty/CozyCafeSFX/Ambience/ambience-coffee-bar.wav",
+    "bytes": 2822444,
+    "sha256": "0b96edc66c3f2eb075c4a5d101cf9bc8d28dbe0715e956ec376a0f79bfd427fa"
+  },
+  {
+    "archive": "cozy-cafe-sfx-ambience.zip",
+    "entry": "cozy-cafe-sfx/LICENSE.txt",
+    "path": "ThirdParty/CozyCafeSFX/Ambience-LICENSE.txt",
+    "bytes": 491,
+    "sha256": "6855e180b9784f91f1d9f93af33b4df035c906ad80e4b432663f2e108e1503bc"
+  }
+]

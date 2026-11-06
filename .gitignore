@@ -112,3 +112,8 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Local playtest captures and Unity recovery copies
+/Screenshots/
+/Assets/_Recovery/
+/Assets/_Recovery.meta
