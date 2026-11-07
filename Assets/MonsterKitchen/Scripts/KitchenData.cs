@@ -72,6 +72,8 @@ namespace MonsterKitchen
 
     public static class KitchenRules
     {
+        // These recipes and win/loss rules are shared by kitchens. A new scene can change
+        // its layout and GameSession's patience settings while keeping the same cooking rules.
         // Ten resolved orders guarantee an ending: at least eight served or at least three missed.
         // With only nine orders, seven served and two missed would leave the game unfinished.
         public const int OrderCount = 10;

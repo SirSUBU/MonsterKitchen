@@ -46,7 +46,7 @@ namespace MonsterKitchen.Editor
                 importer.SaveAndReimport();
             }
 
-            // The short bell should be ready as soon as Start cooking is pressed.
+            // The short bell should be ready as soon as a kitchen is chosen.
             var bellImporter = AssetImporter.GetAtPath(BellPath) as AudioImporter;
             if (!bellImporter)
                 throw new InvalidOperationException("The supplied door-bell sound is missing.");

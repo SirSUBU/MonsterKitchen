@@ -8,7 +8,9 @@ Cook for a small restaurant full of monsters. Vampires want cooked food; tieflin
 
 ## Playing
 
-Open the project in Unity and press Play. The cookbook opens first, even if the Kitchen scene is currently open in the Editor. Choose **Start cooking**, then **Open kitchen** after the briefing.
+Open the project in Unity and press Play. The cookbook opens first, even if the Kitchen scene is currently open in the Editor. Choose **Start cooking**, **1. The little kitchen**, then **Open kitchen** after the briefing.
+
+There is one level for the jam. The level-select page reads an editable catalog and adds pages when more kitchens are included. [ADDING_LEVELS.md](ADDING_LEVELS.md) explains how to add another scene later.
 
 | Control | What it does |
 | --- | --- |
@@ -32,6 +34,7 @@ The receipt stays open when the shift ends. Release the last serving key, then c
 - [ASSIGNMENT_NOTES.md](ASSIGNMENT_NOTES.md): where the assignment requirements appear in the game and notes for the class GDD.
 - [ASSET_SOURCES.md](ASSET_SOURCES.md): source links, credits and what was actually imported.
 - [MUSIC_IMPORT.md](MUSIC_IMPORT.md): the current soundtrack, playback behavior and how to change a song.
+- [ADDING_LEVELS.md](ADDING_LEVELS.md): the level catalog and steps for adding another kitchen.
 - [DEVELOPMENT_STATUS.md](DEVELOPMENT_STATUS.md): fixes, checks and build results.
 
 The main scenes are [Title](Scenes/Title.unity) and [Kitchen](Scenes/Kitchen.unity). Cameras, props, counters and route markers are ordinary scene objects. You can move them in the Editor and save the scene.
@@ -58,4 +61,4 @@ Game design: **Saubdiel Avalos**. The models and character animations are **KayK
 
 The cookbook was inspired by **Undercooked: Cook It Now**. The supplied **Overcooked** references and **Restaurant UI by Nielisson** helped guide the paper menus and results presentation. Their artwork and game code were not imported. Full links and license notes are in the source list above.
 
-The cookbook and briefing use Lily-Paddling Down the Stream, gameplay uses Jazzy Shop, and both endings use Quircky Shop. The songs loop and fade between screens. Start cooking rings the shop's door bell. The constant ambience loop has been removed. The cookbook has simple text music credits; full source and license details are included in the credit file beside the build.
+The cookbook and briefing use Lily-Paddling Down the Stream, gameplay uses Jazzy Shop, and both endings use Quircky Shop. The songs loop and fade between screens. Choosing a kitchen rings the shop's door bell. The constant ambience loop has been removed. The cookbook has simple text music credits; full source and license details are included in the credit file beside the build.

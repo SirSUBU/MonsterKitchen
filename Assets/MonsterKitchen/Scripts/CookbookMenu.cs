@@ -15,6 +15,11 @@ namespace MonsterKitchen
         // Book is the physical prop. MenuCamera is the camera used to click its world-space buttons.
         public Transform Book;
         public Camera MenuCamera;
+        // The catalog owns the level list. The book only presents it, so adding another
+        // kitchen does not require another hard-coded menu option or a new menu script.
+        public KitchenLevelCatalog Levels;
+        const int LevelsPerPage = 3;
+        int levelPage;
         // Buttons and labels use the same index. selected tracks the option highlighted by keyboard or mouse.
         readonly List<Button> buttons = new List<Button>();
         readonly List<Text> labels = new List<Text>();
@@ -67,6 +72,8 @@ namespace MonsterKitchen
             page = next;
             foreach (Transform child in rightPage)
             {
+                // Destroy waits until the end of this frame. Hide the old row now so it
+                // cannot still receive a click while the next page's rows are being made.
                 child.gameObject.SetActive(false);
                 Destroy(child.gameObject);
             }
@@ -76,12 +83,18 @@ namespace MonsterKitchen
             selected = 0;
             if (page == "Menu")
             {
-                AddOption("Start cooking", 220, () => GameSession.Instance.BeginBriefing(), playConfirm: false);
+                AddOption("Start cooking", 220, () =>
+                {
+                    levelPage = 0;
+                    Show("Levels");
+                });
                 AddOption("How to play", 110, () => Show("Help"));
                 AddOption("Sound", 0, () => Show("Sound"));
                 AddOption("Credits", -110, () => Show("Credits"));
                 AddOption("Close the kitchen", -220, Quit);
             }
+            else if (page == "Levels")
+                ShowLevels();
             else if (page == "Help")
             {
                 TextAt(rightPage, "The house rules", new Vector2(0, 390), new Vector2(700, 75), 50, true, FontStyle.Italic);
@@ -121,9 +134,54 @@ namespace MonsterKitchen
             RefreshSelection();
         }
 
+        // Keep the first release to one real kitchen. More published assets fill the page,
+        // then get Previous/Next choices automatically; there are no pretend locked levels.
+        void ShowLevels()
+        {
+            var entries = Levels ? Levels.PublishedLevels() : new List<KitchenLevel>();
+            int pageCount = Mathf.Max(1, (entries.Count + LevelsPerPage - 1) / LevelsPerPage);
+            levelPage = Mathf.Clamp(levelPage, 0, pageCount - 1);
+            TextAt(rightPage, "Choose a kitchen", new Vector2(0, 390), new Vector2(700, 75), 50, true, FontStyle.Italic);
+            if (pageCount > 1)
+                TextAt(rightPage, "Page " + (levelPage + 1) + " of " + pageCount, new Vector2(0, 325), new Vector2(700, 40), 26, true);
+            if (entries.Count == 0)
+                TextAt(rightPage, "The kitchen is closed for now.", new Vector2(0, 90), new Vector2(700, 100), 36, true);
+
+            int first = levelPage * LevelsPerPage;
+            int count = Mathf.Min(LevelsPerPage, entries.Count - first);
+            float top = count == 1 ? 155 : count == 2 ? 210 : 240;
+            for (int row = 0; row < count; row++)
+            {
+                var level = entries[first + row];
+                float y = top - row * 175;
+                string title = (first + row + 1) + ". " + level.DisplayName;
+                if (level.TryGetSceneIndex(out _))
+                    AddOption(title, y, () => GameSession.Instance.BeginBriefing(level), 44, 80, playConfirm: false);
+                else
+                    TextAt(rightPage, title + " (closed)", new Vector2(0, y), new Vector2(700, 80), 36, true);
+                var description = TextAt(rightPage, level.Description ?? "", new Vector2(0, y - 70), new Vector2(700, 65), 29, true);
+                // A future description should stay inside its own row, even if it is too long.
+                description.verticalOverflow = VerticalWrapMode.Truncate;
+            }
+
+            if (levelPage > 0)
+                AddOption("Previous page", -270, () => ChangeLevelPage(-1), 32, 55);
+            if (levelPage + 1 < pageCount)
+                AddOption("Next page", -330, () => ChangeLevelPage(1), 32, 55);
+            AddOption("Back to the menu", pageCount > 1 ? -410 : -340, () => Show("Menu"), 44, 70);
+        }
+
+        // Rebuilding only the lettering also resets the input gate. Holding Enter on Next
+        // cannot accidentally enter the first kitchen on the newly displayed page.
+        void ChangeLevelPage(int direction)
+        {
+            levelPage += direction;
+            Show("Levels");
+        }
+
         // Create a clickable row and save it for keyboard navigation. Mouse and keyboard both
         // invoke the same button action, so they cannot drift into different menu behavior.
-        // Start cooking uses the door bell instead of the usual confirmation click.
+        // Entering a kitchen uses the door bell instead of the usual confirmation click.
         void AddOption(string text, float y, Action action, int fontSize = 52, float rowHeight = 90, bool playConfirm = true)
         {
             int index = buttons.Count;
@@ -197,7 +255,8 @@ namespace MonsterKitchen
         }
 
         // Read menu keys only after the opening input has been released. W/S or arrows choose a row;
-        // E, Space or Enter activates it. Escape goes back to the main page.
+        // E, Space or Enter activates it. Escape leaves level select without loading a scene;
+        // music credits first go back to the main credits, then to the main page.
         void Update()
         {
             menuInput.Update();

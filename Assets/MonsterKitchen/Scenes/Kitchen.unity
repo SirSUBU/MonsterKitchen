@@ -35374,6 +35374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterKitchen.GameSession
   IsTitleScene: 0
+  Level: {fileID: 11400000, guid: 2fbe875c7c77d334e94b5bb5259c2419, type: 2}
   teachingPatience: 80
   regularPatience: 52
   slowerFoodAllowance: 5

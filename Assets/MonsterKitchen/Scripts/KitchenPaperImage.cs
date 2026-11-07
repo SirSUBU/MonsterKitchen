@@ -41,6 +41,7 @@ namespace MonsterKitchen
             mesh.AddVert(r.center, color, Vector2.zero);
             foreach (var p in points)
                 mesh.AddVert(p, color, Vector2.zero);
+            // Modulo wraps the final triangle back to the first outline point, closing the paper.
             for (int i = 0; i < points.Count; i++)
                 mesh.AddTriangle(0, i + 1, (i + 1) % points.Count + 1);
         }

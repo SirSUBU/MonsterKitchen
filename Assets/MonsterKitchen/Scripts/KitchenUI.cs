@@ -1,5 +1,7 @@
 // The kitchen's briefing, order slips, pause pages and end-of-shift receipt.
 // GameSession owns the rules. This script reads those rules and gives the player buttons and feedback.
+// The Build methods lay out each page once. RefreshScreen chooses a page; RefreshHUD fills the live
+// order slips. The small helpers near the bottom create text, paper and buttons used by those pages.
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -161,7 +163,10 @@ namespace MonsterKitchen
         {
             briefing = View("Briefing");
             var sheet = Sheet(briefing, "Tonight's menu", 820, 720);
-            Text(sheet, "Tonight's menu", 40, 48, 740, 75, 53, Ink, true, TextAlignmentOptions.Center);
+            // Awake builds this page before Update subscribes this UI to the session. The
+            // session itself awakens earlier, so read its level name from the shared reference.
+            string levelName = GameSession.Instance ? GameSession.Instance.LevelName : "Tonight's menu";
+            Text(sheet, levelName, 40, 48, 740, 75, 53, Ink, true, TextAlignmentOptions.Center);
             Text(sheet, "Serve 8 guests before 3 leave hungry.", 50, 145, 720, 45, 29, Muted, false, TextAlignmentOptions.Center);
             Preference(sheet, 80, "Vampire", "Cooked", false);
             Preference(sheet, 440, "Tiefling", "Charred", true);

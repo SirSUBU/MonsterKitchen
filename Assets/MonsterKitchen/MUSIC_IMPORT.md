@@ -14,11 +14,11 @@ The files are in `Audio/Music`. The original pack spells the last title **Quirck
 
 `AudioFeedback` reads the current GameSession state and requests its song. `MusicPlayer` keeps two AudioSources on a separate object that survives scene changes. One song fades out as the other fades in over 0.65 seconds. Repeated requests for the same song do nothing, so timer updates cannot restart it.
 
-The title music keeps playing when the kitchen briefing opens. Starting service changes to jazz. Pause lowers the jazz to 70% of its normal level and keeps its place. Resume brings it back up. The existing volume slider and M key affect the music and effects together.
+The title music keeps playing through level select and when the kitchen briefing opens. Starting service changes to jazz. Pause lowers the jazz to 70% of its normal level and keeps its place. Resume brings it back up. The existing volume slider and M key affect the music and effects together.
 
 All three songs loop for as long as their screen is open. Reaching the end of a recording does not change scenes or leave the game silent; Unity returns to the start of that song.
 
-Choosing **Start cooking** rings `door-bell.wav` from the supplied Cozy Cafe SFX pack instead of the regular menu confirmation sound. The bell has a temporary source that survives the scene load, plays once, then removes itself. The bell uses the same master volume and mute setting as the rest of the game. It does not delay loading the kitchen.
+**Start cooking** opens the level-select page. Choosing a kitchen rings `door-bell.wav` from the supplied Cozy Cafe SFX pack instead of the regular menu confirmation sound. The bell has a temporary source that survives the scene load, plays once, then removes itself. The bell uses the same master volume and mute setting as the rest of the game. It does not delay loading the kitchen.
 
 The constant cafe ambience has been removed. Action sounds and stove sizzling still play when those actions happen.
 

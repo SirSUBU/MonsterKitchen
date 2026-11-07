@@ -104,7 +104,10 @@ namespace MonsterKitchen.Editor
             Model("plate", new Vector3(-7.15f, .05f, -2.6f), 2.15f, 0);
             Model("food_burger", new Vector3(-7.15f, .20f, -2.6f), 1.3f, -12);
             var systems = new GameObject("Menu systems");
-            systems.AddComponent<GameSession>().IsTitleScene = true;
+            var catalog = KitchenLevelSetup.EnsureDefaults();
+            var session = systems.AddComponent<GameSession>();
+            session.IsTitleScene = true;
+            session.Level = AssetDatabase.LoadAssetAtPath<KitchenLevel>(KitchenLevelSetup.FirstLevelPath);
             var audio = systems.AddComponent<AudioFeedback>();
             audio.CueNames = new[]
             {
@@ -122,6 +125,7 @@ namespace MonsterKitchen.Editor
             var menu = systems.AddComponent<CookbookMenu>();
             menu.Book = book;
             menu.MenuCamera = camera;
+            menu.Levels = catalog;
             EditorSceneManager.SaveScene(scene, Root + "/Scenes/Title.unity");
             AssetDatabase.SaveAssets();
             return "Replaced title with a physical cookbook menu and tabletop scene.";
@@ -137,6 +141,8 @@ namespace MonsterKitchen.Editor
             for (int i = 0; i <= steps; i++)
             {
                 float t = i / (float)steps;
+                // The extra height is largest beside the binding and falls away toward the edge.
+                // side mirrors X for the left page; the paired vertices span the page's depth.
                 float x = side * (.14f + t * 4.99f), y = .36f + .09f * Mathf.Exp(-t * 10);
                 vertices[i * 2] = new Vector3(x, y, -3.55f);
                 vertices[i * 2 + 1] = new Vector3(x, y, 3.55f);
@@ -145,6 +151,8 @@ namespace MonsterKitchen.Editor
                 if (i < steps)
                 {
                     int p = i * 6, a = i * 2;
+                    // Mirroring a surface also reverses its triangle winding. Reverse these
+                    // indices on the left page so both paper faces point up toward the camera.
                     if (side == 1)
                     {
                         triangles[p] = a;
@@ -194,6 +202,8 @@ namespace MonsterKitchen.Editor
             for (int i = 0; i <= around; i++)
                 for (int j = 0; j <= tube; j++)
                 {
+                    // a travels around the binder ring; b travels around its small tube.
+                    // Joining neighboring samples makes one solid-looking curved ring.
                     float a = i * Mathf.PI * 2 / around, b = j * Mathf.PI * 2 / tube;
                     v[i * (tube + 1) + j] = new Vector3((.31f + .055f * Mathf.Cos(b)) * Mathf.Cos(a), (.23f + .055f * Mathf.Cos(b)) * Mathf.Sin(a), .055f * Mathf.Sin(b));
                     if (i < around && j < tube)

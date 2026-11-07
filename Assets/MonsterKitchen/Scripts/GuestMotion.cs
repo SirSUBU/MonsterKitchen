@@ -51,6 +51,7 @@ namespace MonsterKitchen
         void Update()
         {
             var session = GameSession.Instance;
+            // Guests can finish walking out behind the receipt. Pause freezes them instead.
             bool advancing = session && (session.IsRunning || session.State == RunState.Won || session.State == RunState.Lost);
             if (Animator)
                 Animator.speed = advancing ? 1 : 0;

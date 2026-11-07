@@ -464,10 +464,12 @@ namespace MonsterKitchen.Editor
                 await CheckLoop(titleSong);
                 int before = titleSong.timeSamples;
                 await Press(Key.Enter);
+                Require(GameSession.Instance.State == RunState.Title, "Start cooking opens level select without leaving the cookbook");
+                await Press(Key.Enter);
                 Require(GameSession.Instance.State == RunState.Briefing, "kitchen waits at briefing");
                 Require(MusicPlayer.Instance == player && titleSong.isPlaying && titleSong.timeSamples > before, "title song keeps its place across the scene load");
                 var bell = UnityEngine.Object.FindObjectsByType<AudioSource>().SingleOrDefault(a => a.name == "Shop opening bell");
-                Require(bell && bell.isPlaying && !bell.loop && bell.clip.name == "door-bell", "Start cooking rings one bell that survives the scene change");
+                Require(bell && bell.isPlaying && !bell.loop && bell.clip.name == "door-bell", "choosing a kitchen rings one bell that survives the scene change");
                 before = bell.timeSamples;
                 await Task.Delay(120);
                 Require(bell.isPlaying && bell.timeSamples > before, "the bell keeps playing its tail in the kitchen");
@@ -579,7 +581,150 @@ namespace MonsterKitchen.Editor
             }
         }
 
-        // Use keyboard input to go from cookbook help to the kitchen briefing, play and pause.
+        // Exercise the catalog through the same menu handlers used by mouse and keyboard.
+        // extraScene can point at a temporary Editor test scene to prove that a second kitchen
+        // loads by its own path. Scratch catalog entries exist only in memory and are removed.
+        public static async Task<string> Levels(KitchenLevel extraScene = null)
+        {
+            if (!Application.isPlaying)
+                throw new Exception("Enter Play mode at the cookbook first.");
+            checks = 0;
+            LastResult = "Checking level selection";
+            var book = UnityEngine.Object.FindAnyObjectByType<CookbookMenu>();
+            if (!book || !book.Levels)
+                throw new Exception("The cookbook needs its saved level catalog.");
+            var original = book.Levels;
+            string originalPath = UnityEditor.AssetDatabase.GetAssetPath(original);
+            string extraPath = extraScene ? UnityEditor.AssetDatabase.GetAssetPath(extraScene) : "";
+            KitchenLevelCatalog scratch = null;
+            var created = new System.Collections.Generic.List<KitchenLevel>();
+            BeginInput();
+            try
+            {
+                bool Has(string text) => UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>().Any(t => t.isActiveAndEnabled && t.text == text);
+                UnityEngine.UI.Button[] Buttons() => UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>().Where(b => b.isActiveAndEnabled).ToArray();
+                async Task Click(string label)
+                {
+                    Buttons().Single(b => b.name == label).onClick.Invoke();
+                    await Task.Delay(400);
+                }
+
+                int savedLevelCount = original.PublishedLevels().Count;
+                var first = original.PublishedLevels().First();
+                await Task.Delay(250);
+                await Press(Key.Enter, 650);
+                Require(Has("Choose a kitchen") && GameSession.Instance.State == RunState.Title, "holding Start opens level select without entering a kitchen");
+                Require(!UnityEngine.Object.FindObjectsByType<AudioSource>().Any(a => a.name == "Shop opening bell"), "opening level select does not ring the door bell early");
+                Require(Buttons().Any(b => b.name == "1. " + first.DisplayName) && Buttons().Any(b => b.name == "Back to the menu"), "the first kitchen and Back are available");
+                await Press(Key.Escape);
+                Require(Buttons().Any(b => b.name == "Start cooking"), "Escape returns from level select to the main book");
+                await Press(Key.Enter);
+                await Press(Key.Enter);
+                Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path == first.ScenePath, "the selected kitchen loads from its asset path");
+                Require(GameSession.Instance.Level == first && GameSession.Instance.State == RunState.Briefing, "the kitchen receives its own level name and waits at briefing");
+                GameSession.Instance.StartShift();
+                GameSession.Instance.RestartShift();
+                Require(GameSession.Instance.Level == first && GameSession.Instance.Served == 0, "retry keeps the current kitchen and starts a clean shift");
+                GameSession.Instance.ReturnToTitle();
+                await Task.Delay(500);
+
+                // A single-scene load can unload assets held only by this async test's local
+                // variables. Find the newly loaded catalog, and keep scratch data alive explicitly.
+                original = UnityEditor.AssetDatabase.LoadAssetAtPath<KitchenLevelCatalog>(originalPath);
+                first = original.PublishedLevels().First();
+                extraScene = string.IsNullOrEmpty(extraPath) ? null : UnityEditor.AssetDatabase.LoadAssetAtPath<KitchenLevel>(extraPath);
+                scratch = ScriptableObject.CreateInstance<KitchenLevelCatalog>();
+                scratch.hideFlags = HideFlags.DontUnloadUnusedAsset;
+
+                // More than three published entries must create a second page. A draft,
+                // an empty slot and the same asset twice must not become extra menu choices.
+                for (int i = 2; i <= 4; i++)
+                {
+                    var level = ScriptableObject.CreateInstance<KitchenLevel>();
+                    level.DisplayName = "Test kitchen " + i;
+                    level.ScenePath = first.ScenePath;
+                    created.Add(level);
+                }
+                var missing = ScriptableObject.CreateInstance<KitchenLevel>();
+                missing.DisplayName = "Unbuilt kitchen";
+                missing.ScenePath = "Assets/MonsterKitchen/Scenes/NotBuilt.unity";
+                created.Add(missing);
+                var draft = ScriptableObject.CreateInstance<KitchenLevel>();
+                draft.DisplayName = "Unpublished draft";
+                draft.IsPublished = false;
+                created.Add(draft);
+                scratch.Levels = new[] { first, null, first, created[0], created[1], created[2], missing, extraScene, draft };
+                book = UnityEngine.Object.FindAnyObjectByType<CookbookMenu>();
+                book.Levels = scratch;
+                await Click("Start cooking");
+                Require(Has("Page 1 of 2"), "additional kitchens create more cookbook pages");
+                Require(Buttons().Count(b => char.IsDigit(b.name[0])) == 3, "the first page fits three published kitchens");
+                Require(!UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>().Any(t => t.isActiveAndEnabled && t.text.Contains("Unpublished draft")), "draft entries stay out of the menu");
+                await Click("Next page");
+                Require(Has("Page 2 of 2") && Buttons().Any(b => b.name == "4. Test kitchen 4"), "Next keeps the catalog order on the second page");
+                Require(Has("5. Unbuilt kitchen (closed)") && !Buttons().Any(b => b.name.StartsWith("5.")), "a missing build scene is shown as closed and cannot be clicked");
+                GameSession.Instance.BeginBriefing(missing);
+                Require(GameSession.Instance.State == RunState.Title, "a missing scene cannot leave the menu in a half-started state");
+                await Click("Previous page");
+                Require(Has("Page 1 of 2"), "Previous returns to the first page");
+                await Click("Back to the menu");
+
+                // Empty data is a safe, navigable closed page rather than a null-reference error.
+                scratch.Levels = null;
+                await Click("Start cooking");
+                Require(Has("The kitchen is closed for now.") && Buttons().Length == 1, "an empty catalog still offers Back");
+                await Click("Back to the menu");
+                book.Levels = null;
+                await Click("Start cooking");
+                Require(Has("The kitchen is closed for now.") && Buttons().Length == 1, "a missing catalog stays navigable too");
+                await Click("Back to the menu");
+
+                if (extraScene)
+                {
+                    scratch.Levels = new[] { first, extraScene };
+                    book.Levels = scratch;
+                    await Click("Start cooking");
+                    await Click("2. " + extraScene.DisplayName);
+                    Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path == extraScene.ScenePath, "a new level loads a different scene without changing menu code");
+                    Require(GameSession.Instance.Level == extraScene, "the second scene keeps its own level asset");
+                    GameSession.Instance.StartShift();
+                    GameSession.Instance.RestartShift();
+                    Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path == extraScene.ScenePath && GameSession.Instance.Level == extraScene, "retry stays in the second scene too");
+                    GameSession.Instance.ReturnToTitle();
+                    await Task.Delay(500);
+                }
+                book = UnityEngine.Object.FindAnyObjectByType<CookbookMenu>();
+                original = UnityEditor.AssetDatabase.LoadAssetAtPath<KitchenLevelCatalog>(originalPath);
+                book.Levels = original;
+                Require(original.PublishedLevels().Count == savedLevelCount, "scratch levels never change the saved catalog");
+                LastResult = checks + " level-select checks passed (input, catalog pages, drafts, missing scenes, retry and future scene loading).";
+                Debug.Log(LastResult);
+                return LastResult;
+            }
+            catch (Exception e)
+            {
+                LastResult = e.Message;
+                Debug.LogError(e);
+                throw;
+            }
+            finally
+            {
+                EndInput();
+                if (GameSession.Instance && !GameSession.Instance.IsTitleScene)
+                {
+                    GameSession.Instance.ReturnToTitle();
+                    await Task.Delay(400);
+                }
+                book = UnityEngine.Object.FindAnyObjectByType<CookbookMenu>();
+                if (book)
+                    book.Levels = UnityEditor.AssetDatabase.LoadAssetAtPath<KitchenLevelCatalog>(originalPath);
+                foreach (var level in created)
+                    UnityEngine.Object.Destroy(level);
+                UnityEngine.Object.Destroy(scratch);
+            }
+        }
+
+        // Use keyboard input to go from cookbook help through level select, briefing, play and pause.
         public static async Task<string> Menu()
         {
             checks = 0;
@@ -594,8 +739,10 @@ namespace MonsterKitchen.Editor
                 Require(UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>().Any(t => t.text == "The house rules"), "keyboard opens book instructions");
                 await Press(Key.Escape);
                 await Press(Key.Enter);
+                Require(UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>().Any(t => t.text == "Choose a kitchen"), "Start cooking opens the level-select page");
+                await Press(Key.Enter);
                 await Task.Delay(600);
-                Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Kitchen", "book Start loads Kitchen");
+                Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Kitchen", "choosing the first kitchen loads its scene");
                 Require(GameSession.Instance.State == RunState.Briefing, "arrives at briefing before time starts");
                 await Press(Key.Enter);
                 Require(GameSession.Instance.IsRunning, "keyboard starts gameplay from briefing");

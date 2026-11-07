@@ -103,7 +103,9 @@ namespace MonsterKitchen
                 ProgressFill.parent.gameObject.SetActive(Type == StationType.Hotplate && Item);
                 if (Item)
                 {
-                    float duration = Item.Kind == FoodKind.Patty ? 19 : 25;
+                    // Use the recipe's ash threshold too, so editing a cooking time does not
+                    // leave the visible bar on the old timing. The offset keeps its left edge still.
+                    float duration = KitchenRules.Thresholds(Item.Kind).Ash;
                     float p = Mathf.Clamp01(Item.HeatSeconds / duration);
                     ProgressFill.localScale = new Vector3(Mathf.Max(.01f, p), 1, 1);
                     ProgressFill.localPosition = new Vector3((p - 1) * .5f, 0, 0);

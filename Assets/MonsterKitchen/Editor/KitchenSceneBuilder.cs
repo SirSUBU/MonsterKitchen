@@ -30,14 +30,12 @@ namespace MonsterKitchen.Editor
             Directory.CreateDirectory(Root + "/Prefabs");
             AssetDatabase.Refresh();
             string assetReport = KitchenAssetSetup.Configure();
+            KitchenLevelSetup.EnsureDefaults();
             MakeMaterials();
             BuildScene(false);
             CookbookSceneBuilder.Build();
-            EditorBuildSettings.scenes = new[]
-            {
-                new EditorBuildSettingsScene(Root + "/Scenes/Title.unity", true),
-                new EditorBuildSettingsScene(Root + "/Scenes/Kitchen.unity", true)
-            };
+            // Keep any kitchens added after the jam when rebuilding the original scenes.
+            KitchenLevelSetup.SyncBuildScenes();
             PlayerSettings.companyName = "Saubdiel Avalos";
             PlayerSettings.productName = "Monster Kitchen";
             PlayerSettings.defaultScreenWidth = 1600;
@@ -117,7 +115,9 @@ namespace MonsterKitchen.Editor
             assets.SteamMaterial = steam;
             assets.MintMaterial = mint;
             assets.CoralMaterial = coral;
-            systems.AddComponent<GameSession>().IsTitleScene = titleScene;
+            var session = systems.AddComponent<GameSession>();
+            session.IsTitleScene = titleScene;
+            session.Level = AssetDatabase.LoadAssetAtPath<KitchenLevel>(KitchenLevelSetup.FirstLevelPath);
             var sound = systems.AddComponent<AudioFeedback>();
             sound.CueNames = new[]
             {

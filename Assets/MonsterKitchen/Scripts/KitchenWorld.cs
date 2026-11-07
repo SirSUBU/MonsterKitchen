@@ -66,7 +66,23 @@ namespace MonsterKitchen
             // creating both bodies at the same doorway on the same frame.
             float wait = Mathf.Max(0, nextEntranceTime - session.Elapsed);
             nextEntranceTime = session.Elapsed + wait + 1.1f;
-            motion.Initialize(ticket, new[] { ArrivalAisle.position, new Vector3(target.x + .65f, 0, ArrivalAisle.position.z), new Vector3(target.x + .65f, 0, target.z), target }, new[] { new Vector3(target.x - .65f, 0, target.z), new Vector3(target.x - .65f, 0, DepartureAisle.position.z), DepartureAisle.position, Exit.position }, wait);
+            // Approach from the right of the counter, then leave on its left. The two
+            // offset points keep incoming and outgoing guests from cutting through each other.
+            var incoming = new[]
+            {
+                ArrivalAisle.position,
+                new Vector3(target.x + .65f, 0, ArrivalAisle.position.z),
+                new Vector3(target.x + .65f, 0, target.z),
+                target
+            };
+            var outgoing = new[]
+            {
+                new Vector3(target.x - .65f, 0, target.z),
+                new Vector3(target.x - .65f, 0, DepartureAisle.position.z),
+                DepartureAisle.position,
+                Exit.position
+            };
+            motion.Initialize(ticket, incoming, outgoing, wait);
             guests[ticket.Id] = motion;
             AudioFeedback.Play("order");
         }

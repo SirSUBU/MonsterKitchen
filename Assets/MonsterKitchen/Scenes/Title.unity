@@ -25355,6 +25355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterKitchen.CookbookMenu
   Book: {fileID: 643285332}
   MenuCamera: {fileID: 342065363}
+  Levels: {fileID: 11400000, guid: 301d211d4d00b5141b760fb54e589c82, type: 2}
 --- !u!114 &1617033084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25393,6 +25394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterKitchen.GameSession
   IsTitleScene: 1
+  Level: {fileID: 11400000, guid: 2fbe875c7c77d334e94b5bb5259c2419, type: 2}
   teachingPatience: 80
   regularPatience: 52
   slowerFoodAllowance: 5

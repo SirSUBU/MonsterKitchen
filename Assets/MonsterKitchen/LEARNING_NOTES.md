@@ -8,6 +8,7 @@ The comments in the source explain each method and the less obvious steps inside
 
 - A **GameObject** is an object in the scene, such as the chef or a counter. Components give it behavior.
 - A **MonoBehaviour** is a script component Unity can attach to a GameObject.
+- A **ScriptableObject** is a saved data asset. The level catalog uses these so names and scene choices can be edited without changing the menu code.
 - **Awake** gets references ready when the object loads. **Start** runs before its first update. **Update** runs every frame. **OnDestroy** handles cleanup when the object goes away.
 - A **Transform** stores position, rotation and scale. A **RectTransform** does that job for UI, with anchors for keeping things at screen edges.
 - An **event** lets one script announce a change without knowing every script that needs to react. For example, resolving an order tells both the UI and the visible customer.
@@ -66,7 +67,7 @@ These are total times. A patty becomes charred at 12 seconds total, not 12 more 
 
 **HeatAt** checks ash, charred and cooked in that order. That also handles a long update that crosses more than one boundary. **RebuildVisual** changes the imported food model when the state changes. The stove updates its label, progress bar, steam or smoke, and sizzle separately.
 
-To change cooking speed, edit **KitchenRules.Thresholds**. The current stove progress bar also uses the food's ash time in **KitchenStation.Update**, so update that duration too if you change when ash begins.
+To change cooking speed, edit **KitchenRules.Thresholds**. The stove progress bar reads the ash time from that same function, so the bar and the food's actual cooking time stay together.
 
 ## Orders, patience and the theme
 
@@ -92,7 +93,9 @@ The chef uses a similar idle/walk setup. A carrying layer uses an arm mask, whic
 
 The normal flow is:
 
-`Title -> Briefing -> Playing -> Won or Lost`
+`Cookbook -> Level select -> Briefing -> Playing -> Won or Lost`
+
+The cookbook and level selector both use the `Title` game state. Turning a page does not start the shift or its timers. A valid level choice loads that kitchen's scene and begins its briefing.
 
 Pause temporarily changes `Playing` to `Paused`. It does not create another shift. The movement, cooking, patience and arrival code all check `GameSession.IsRunning`. UI uses unscaled time so menus stay responsive while gameplay is stopped.
 
@@ -102,6 +105,16 @@ Two details matter here:
 
 - **KitchenUI** hides its Canvas immediately on Title. Previously, its fallback selected the briefing for any unhandled state, which briefly showed the start notice while leaving.
 - **MenuInputGate** waits for the key or mouse button that opened a screen to be released. Previously, the last E/Space press could serve guest eight and select Another shift in the same frame. The result now has a short opening delay and requires a new choice.
+
+## Level selection and adding rooms
+
+**KitchenLevel** is the data for one menu entry: its name, short description, scene path and whether it is ready to show. **KitchenLevelCatalog** stores the ordered list. A list is useful here because the book can loop over entries instead of having a separate block of code for every future level.
+
+**CookbookMenu.ShowLevels** takes the published entries, shows three at a time, and creates Previous and Next choices when there are more. Drafts and empty catalog slots do not become buttons. **MenuInputGate** also applies to page changes, so holding Enter on Start cooking cannot accidentally enter the first kitchen.
+
+When a level is chosen, **GameSession.BeginBriefing(level)** checks that its scene is in the build, rings the door bell, and loads that scene. It uses the full scene path to find the build index, so another room does not have to be named Kitchen. The new scene's GameSession points to its own level asset for the briefing name. Retry resets that scene's objects and keeps its layout and pacing.
+
+This separates three jobs: the asset stores the choice, the cookbook displays it, and GameSession opens it. The same pattern could be used for chapters, maps or challenge rooms in another game. [ADDING_LEVELS.md](ADDING_LEVELS.md) gives the actual Unity steps for this project.
 
 ## Textboxes, order slips and buttons
 
@@ -127,7 +140,7 @@ The restaurant tags also use small world-space Canvases and the same rounded fon
 
 **AudioFeedback.Play("pickup")** looks up a named cue and plays its clip once. It checks both cue arrays before reading them, so an incomplete sound setup stays silent instead of throwing an error. The stove owns its sizzle source because it needs to start and stop with cooking. There is no constant ambience loop.
 
-**AudioFeedback.PlayOpeningBell** is a small exception to scene-owned effects. Start cooking loads a new scene right away, so its bell would be cut off if it used the old menu's source. This method creates a temporary object, keeps it alive across the load, plays the bell once, and removes the object after the recording finishes. `GameSession.BeginBriefing` calls it only after accepting a new start, so a repeated start request cannot ring it twice. The cookbook skips its normal confirmation click for this option.
+**AudioFeedback.PlayOpeningBell** is a small exception to scene-owned effects. Choosing a kitchen loads its scene right away, so its bell would be cut off if it used the old menu's source. This method creates a temporary object, keeps it alive across the load, plays the bell once, and removes the object after the recording finishes. `GameSession.BeginBriefing` calls it only after accepting a valid level, so a repeated start request cannot ring it twice. The cookbook skips its normal confirmation click for this option. Opening level select itself just turns the page.
 
 **AudioFeedback.RefreshMusic** chooses a song from the session state. **MusicPlayer** lives on a separate object that survives scene changes. It has two AudioSources: the outgoing song fades down while the incoming song fades up. The same clip is never started twice, and repeated timer notifications do not restart its fade.
 
@@ -146,6 +159,7 @@ These tools help create or verify the project. They are not part of the built pl
 | KitchenAssetSetup | Prepare materials, rigs, clips and animation controllers |
 | KitchenUIFontSetup | Create the saved TMP font atlas |
 | KitchenMusicSetup | Import the three songs and assign their roles in both scenes |
+| KitchenLevelSetup | Create the initial catalog, connect the original scenes, and add published levels to the build list |
 | KitchenPlayEntry | Start Editor Play at Title even when editing Kitchen |
 | KitchenIntegrationChecks | Run keyboard, cooking, route and menu checks against the live game |
 

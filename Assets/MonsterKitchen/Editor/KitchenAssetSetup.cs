@@ -296,7 +296,8 @@ namespace MonsterKitchen.Editor
             }
         }
 
-        // Short effects load ready to play. Longer ambience streams in the background to use less memory.
+        // Short effects use decompressed playback. Longer ambience streams to use less memory.
+        // The pack's ambience files are retained as source assets but are not played by the game.
         private static void ConfigureAudio(string path)
         {
             var importer = (AudioImporter)AssetImporter.GetAtPath(path);

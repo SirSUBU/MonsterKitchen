@@ -15,6 +15,10 @@ namespace MonsterKitchen
 
         [Tooltip("Title previews wait at the menu; the Kitchen scene starts at its briefing.")]
         public bool IsTitleScene = true;
+        // Each kitchen scene points to its own level asset. Restart stays in this scene and
+        // keeps this reference; choosing a different kitchen loads that level's scene instead.
+        public KitchenLevel Level;
+        public string LevelName => Level ? Level.DisplayName : "Tonight's menu";
         // Times here are in seconds. The first two guests get extra time to teach the cooking states.
         // These fields can be changed on the GameSession component in the Inspector.
         [Header("Customer patience, in seconds")]
@@ -106,22 +110,30 @@ namespace MonsterKitchen
             maximumPatienceBonus = Mathf.Max(0, maximumPatienceBonus);
         }
 
-        // The cookbook's Start cooking choice comes here. Load Kitchen without starting its timers yet.
-        // The fallback also lets an isolated test scene show a briefing without the build scene list.
-        public void BeginBriefing()
+        // A cookbook level choice comes here. Check its scene before ringing the bell or leaving
+        // Title, so a draft or missing build scene cannot strand the player in a half-started run.
+        // A call without an argument uses the scene's assigned level, which is useful for checks.
+        public void BeginBriefing(KitchenLevel selectedLevel = null)
         {
             if (resetting || resolving || loadingScene || State != RunState.Title)
                 return;
-            // Ring once for this accepted Start cooking action, before changing scenes.
-            AudioFeedback.PlayOpeningBell();
-            if (IsTitleScene && Application.CanStreamedLevelBeLoaded("Kitchen"))
+            var chosen = selectedLevel ? selectedLevel : Level;
+            if (IsTitleScene)
             {
+                if (!chosen || !chosen.TryGetSceneIndex(out int sceneIndex))
+                {
+                    ShowMessage("That kitchen is not open yet.");
+                    return;
+                }
+                AudioFeedback.PlayOpeningBell();
                 loadingScene = true;
-                SceneManager.LoadScene("Kitchen");
+                SceneManager.LoadScene(sceneIndex);
                 return;
             }
 
-            // Also works in an isolated scene before the build's scene list is configured.
+            // Rule-only checks can still show a briefing in an isolated non-title scene.
+            if (chosen)
+                Level = chosen;
             State = RunState.Briefing;
             Changed?.Invoke();
         }
@@ -240,7 +252,7 @@ namespace MonsterKitchen
                     Resolve(ticket, false);
                     if (!IsRunning || runVersion != version)
                         return;
-                // Resolve removes this entry, so the next entry now occupies this index.
+                    // Resolve removes this entry, so the next entry now occupies this index.
                 }
                 else
                     i++;

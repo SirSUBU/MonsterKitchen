@@ -10,5 +10,6 @@ Open this project in Unity **6000.6.5f1** and press Play. The cookbook opens fir
 - [Recent fixes and test results](Assets/MonsterKitchen/DEVELOPMENT_STATUS.md)
 - [Credits, asset sources and licenses](Assets/MonsterKitchen/ASSET_SOURCES.md)
 - [Music and playback settings](Assets/MonsterKitchen/MUSIC_IMPORT.md)
+- [How to add another kitchen after the jam](Assets/MonsterKitchen/ADDING_LEVELS.md)
 
 `Assets`, `Packages` and `ProjectSettings` contain the source project. Unity caches, recovery scenes, local screenshots and compiled builds are ignored by Git. The imported cafe sounds can be used in the game, but their license does not allow redistributing them as a separate sound pack.

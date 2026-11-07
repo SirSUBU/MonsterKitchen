@@ -31,7 +31,7 @@ This project uses 3D character models instead of a 2D sprite sheet. The visual-s
 ## Keep these details in the GDD
 
 - The win condition is eight served guests; the loss condition is three guests leaving hungry.
-- The game has one kitchen and a fixed ten-order sequence. It is a small complete shift, not a level campaign.
+- The game has one playable kitchen and a fixed ten-order sequence. The cookbook includes level select, with an editable catalog for adding new kitchen scenes after the jam. The submitted version is still one complete shift.
 - Explain the recovery example above and why the first customer's order does not disappear.
 - Include the external links from ASSET_SOURCES.md. Distinguish imported assets from games used only as references.
 - The soundtrack uses Lily-Paddling Down the Stream by Fablefly Music and Jazzy Shop / Quircky Shop by Tim Reichert. Include the track, creator and license links from the credits. The two shop tracks have a noncommercial license.

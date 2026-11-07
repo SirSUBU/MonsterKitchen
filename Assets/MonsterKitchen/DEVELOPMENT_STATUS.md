@@ -1,4 +1,22 @@
-# Shop opening and plain credits — 6 November 2026
+# Level select and code review — 6 November 2026
+
+Start cooking now opens a level-select page inside the cookbook. The jam version lists one playable level, The little kitchen. Choosing it rings the door bell and opens its briefing; turning pages does not start the shift or restart the title music.
+
+The menu reads KitchenLevel assets from a KitchenLevelCatalog. More published entries create extra pages automatically. Drafts, empty slots and duplicates are skipped, and a missing build scene is shown as closed. GameSession loads the chosen scene by its full path instead of assuming that every level is named Kitchen. Retry resets the scene already being played. The scene builders keep the catalog and additional build entries when rebuilding the original scenes.
+
+[ADDING_LEVELS.md](ADDING_LEVELS.md) walks through making a new scene and level asset, connecting the scene's GameSession, and updating the build list. Recipe rules and the current win/loss goals remain shared; individual scenes can have their own room layouts and pacing.
+
+The comments in all 26 project-owned C# scripts were reviewed. The new level scripts explain how their data, menu choices and scene loading fit together. Extra explanations cover page input, scene startup, customer route offsets, paper geometry and the cookbook mesh. The customer route arrays were split into named incoming and outgoing routes. The stove progress bar now reads its duration from the recipe thresholds, so changing a recipe later will also update its bar. There are no XML summary tags.
+
+**197 live Editor checks passed:** 20 for level selection, 55 for music, 7 for cookbook navigation, 60 for gameplay, 25 for the paper UI, 12 for customer routes and animations, and 18 for transitions. This includes the earlier eighth-serve restart and briefing-flash bugs. The checks use real game components and input, with some setup steps speeding up cooking and orders; they are not a full natural-speed standalone playthrough.
+
+A temporary second scene confirmed that choosing another kitchen loads that scene, uses its own briefing name and stays there on retry. The test scene was removed afterward, and the release catalog and build list were checked again: one playable kitchen, plus Title. The build-list helper also preserved the extra scene while it existed. Neither saved scene has missing scripts, and both have their level references assigned.
+
+The selector was visually checked at 1600 x 900, and a UI raycast confirmed its kitchen button receives clicks. It uses the existing cookbook lettering and paper. The local preview is `Screenshots/level-select.png`; the complete check summary is `Screenshots/level-integration-suite.txt`.
+
+Windows build `build_dca29c4c50a5` succeeded in about 14 seconds with **0 errors** and the same 499 package shader warnings as before. The updated player is at `Builds/Windows/MonsterKitchen.exe`. The Editor is left outside Play mode at Title. The build contains only Title and the existing kitchen.
+
+## Previous revision: shop opening and plain credits
 
 Start cooking now rings the supplied cafe door bell instead of the regular menu confirmation click. The bell survives the change from cookbook to kitchen, finishes its short tail, and removes its temporary object. A repeated start request cannot play another bell once the briefing has opened. Other menu and cooking sounds work as before.
 

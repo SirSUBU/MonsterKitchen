@@ -58,7 +58,7 @@ namespace MonsterKitchen
             MusicPlayer.GetOrCreate().SetTrack(clip, volume);
         }
 
-        // Start cooking immediately loads the kitchen, which removes this scene's normal
+        // Choosing a level immediately loads its kitchen, which removes this scene's normal
         // effect source. Give the bell its own short-lived object so its tail is not cut off.
         // It plays once, follows the master volume, and removes itself after the clip finishes.
         public static void PlayOpeningBell()
