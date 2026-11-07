@@ -1,0 +1,30 @@
+MONSTER KITCHEN - MUSIC CREDITS
+
+Title and briefing:
+Lily-Paddling Down the Stream
+Fablefly Music
+https://fablefly-music.itch.io/lily-paddling-down-the-stream
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+Gameplay:
+Jazzy Shop
+Tim Reichert
+https://tim-reichert.com
+
+Results (both endings):
+Quircky Shop
+Tim Reichert
+https://tim-reichert.com
+
+Jazzy Shop and Quircky Shop are from the Convenience Store Audio Pack:
+https://fulminisictus.itch.io/convenience-store-audio-pack
+Music license: CC BY-NC 4.0
+https://creativecommons.org/licenses/by-nc/4.0/
+These two tracks are licensed for noncommercial use.
+The creator's supplied ReadMe is retained beside this file.
+
+The supplied source recordings are unchanged. Unity encodes the playback
+copies as stereo Vorbis; the game loops them and applies volume fades.
+The original spelling "Quircky Shop" is retained from the audio pack.
+
+Music choices and sources recorded 6 November 2026.

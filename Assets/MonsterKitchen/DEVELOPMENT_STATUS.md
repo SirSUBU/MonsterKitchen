@@ -1,4 +1,26 @@
-# Restaurant lettering — 6 November 2026
+# Music and ambience — 6 November 2026
+
+The cookbook and briefing now play Lily-Paddling Down the Stream by Fablefly Music. Jazzy Shop by Tim Reichert starts when service begins, and his Quircky Shop plays on both ending screens. The constant kitchen ambience has been removed. Cooking, serving, pickup and menu sounds still play when those actions happen.
+
+Music uses two sources on one object that survives scene changes. This lets songs fade into each other without an abrupt cut. Pausing lowers the jazz a little and keeps its place; resuming brings it back up. The existing volume and mute controls affect music too. Asking for the same song again does not restart it, even though the session sends updates while its timer runs. An incomplete sound-effect list also stays silent instead of causing a null-reference error.
+
+The original WAV files are unchanged. Unity imports them as streaming stereo Vorbis. The creator's pack ReadMe and a source manifest are kept with the music. The cookbook has a separate music credits page with artist and license links, and the written guides now explain these settings. The shop tracks use CC BY-NC 4.0, so they are for noncommercial use; Lily uses CC BY 4.0.
+
+## Checks for this revision
+
+- **46 music checks passed:** the correct track on each screen, all three loop points, pause/resume continuity, mute and volume restoration, both endings, retry, rapid scene changes, one music player, one listener, and no constant ambience source.
+- The missing sound-effect array case was checked too. The game continued without throwing an exception.
+- The credits and music credits pages were visually checked at 1600 x 900. Back navigation returned to the credits and then to the cookbook menu.
+- The title source produced a nonzero audio output signal. Source playback and loop positions were checked in the Editor; this was not a full listening pass through every recording.
+- The live music checks finished with no console errors or warnings. The existing gameplay rules, customer routes and kitchen layout were not changed.
+
+These checks use the real game components. Some setup steps resolve or expire orders through the session code to reach both endings quickly, and the loop checks seek near each track's end. They do not replace a natural-speed playthrough. Local captures and the check result are in `Screenshots/music-credits.png`, `Screenshots/credits-with-music-link.png` and `Screenshots/music-checks.txt`.
+
+Windows build `build_0a87ad042101` succeeded in about 20 seconds with **0 errors**. Unity reported the same 499 package shader warnings as the previous build. The player is at `Builds/Windows/MonsterKitchen.exe`, with `MUSIC-CREDITS.txt` and the creator's pack ReadMe beside it. This build was compiled successfully; the playback checks above were done in the Editor, not in a separate standalone playthrough.
+
+The Editor is left outside Play mode with Title open. No scene rebuild is needed to use the soundtrack. The project's existing unrelated local changes are not part of this revision.
+
+## Previous revision: restaurant lettering
 
 The restaurant now uses the menus' rounded Fredoka lettering. Cream station tags replace the dark, all-caps labels. The three serving counters have number badges that match the order slips. Equipment uses short names: Patties, Ham, Stove, Counter and Bin.
 

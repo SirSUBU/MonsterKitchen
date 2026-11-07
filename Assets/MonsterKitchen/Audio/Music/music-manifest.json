@@ -1,0 +1,41 @@
+[
+  {
+    "file": "Jazzy Shop.wav",
+    "source": "Convenience Store Audio Pack.zip / Convenience Store Pack/Music/Jazzy Shop.wav",
+    "bytes": 57728524,
+    "sha256": "68f0614dd0a628956894ac39db28d5eaeaa2632b7df35e8a7c4f94509f429fff",
+    "seconds": 163.629,
+    "channels": 2,
+    "sample_rate": 44100,
+    "bit_depth": 32,
+    "peak_dbfs": -0.2,
+    "rms_dbfs": -18.44,
+    "loop_boundary_step": 0.005126
+  },
+  {
+    "file": "Lily-Paddling Down the Stream.wav",
+    "source": "Lily-Paddling Down the Stream.wav",
+    "bytes": 14817830,
+    "sha256": "c241ea0fc56371458ea156f8979f864850f02613ce131d198ff7c036ff1c0af3",
+    "seconds": 56.0,
+    "channels": 2,
+    "sample_rate": 44100,
+    "bit_depth": 24,
+    "peak_dbfs": -0.22,
+    "rms_dbfs": -19.41,
+    "loop_boundary_step": 0.006921
+  },
+  {
+    "file": "Quircky Shop.wav",
+    "source": "Convenience Store Audio Pack.zip / Convenience Store Pack/Music/Quircky Shop.wav",
+    "bytes": 35280172,
+    "sha256": "410159dc2beeebf8edae0464549624e6f62cbb96c66a068717f1b6327326d4c5",
+    "seconds": 100.0,
+    "channels": 2,
+    "sample_rate": 44100,
+    "bit_depth": 32,
+    "peak_dbfs": -0.2,
+    "rms_dbfs": -19.23,
+    "loop_boundary_step": 0.025646
+  }
+]

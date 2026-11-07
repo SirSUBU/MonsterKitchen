@@ -148,7 +148,7 @@ namespace MonsterKitchen.Editor
                 "ui-error"
             };
             sound.Clips = soundFiles.Select(Audio).ToArray();
-            sound.Ambience = Audio("ambience-kitchen");
+            KitchenMusicSetup.Assign(sound);
             systems.AddComponent<KitchenUI>();
             var world = systems.AddComponent<KitchenWorld>();
             world.GameCamera = camera;

@@ -118,7 +118,7 @@ namespace MonsterKitchen.Editor
                 KitchenAssetSetup.Sound("ui-confirm"),
                 KitchenAssetSetup.Sound("ui-back")
             };
-            audio.Ambience = KitchenAssetSetup.Sound("ambience-kitchen");
+            KitchenMusicSetup.Assign(audio);
             var menu = systems.AddComponent<CookbookMenu>();
             menu.Book = book;
             menu.MenuCamera = camera;

@@ -99,10 +99,26 @@ namespace MonsterKitchen
                 AddOption("Back to the menu", -270, () => Show("Menu"));
                 UpdateVolume();
             }
+            else if (page == "MusicCredits")
+            {
+                // Separate the music credits from the main credits so neither page needs tiny text.
+                // Artist names and licenses are ordinary menu options, usable by mouse or keyboard.
+                TextAt(rightPage, "Music credits", new Vector2(0, 390), new Vector2(700, 75), 50, true, FontStyle.Italic);
+                TextAt(rightPage, "Jazzy Shop / Quircky Shop", new Vector2(0, 285), new Vector2(700, 50), 34, true);
+                AddOption("Tim Reichert", 225, () => Application.OpenURL("https://tim-reichert.com"), 38, 60);
+                TextAt(rightPage, "tim-reichert.com", new Vector2(0, 177), new Vector2(700, 34), 26, false);
+                AddOption("CC BY-NC 4.0", 132, () => Application.OpenURL("https://creativecommons.org/licenses/by-nc/4.0/"), 27, 44);
+                TextAt(rightPage, "Lily-Paddling Down the Stream", new Vector2(0, 30), new Vector2(700, 85), 34, true);
+                AddOption("Fablefly Music", -45, () => Application.OpenURL("https://fablefly-music.itch.io/lily-paddling-down-the-stream"), 38, 60);
+                AddOption("CC BY 4.0", -105, () => Application.OpenURL("https://creativecommons.org/licenses/by/4.0/"), 27, 44);
+                TextAt(rightPage, "Original recordings; looped with fades.\nSelect an artist or license for its page.", new Vector2(0, -235), new Vector2(700, 90), 26, true);
+                AddOption("Back to credits", -360, () => Show("Credits"), 46, 76);
+            }
             else
             {
                 TextAt(rightPage, "Made with", new Vector2(0, 390), new Vector2(700, 75), 50, true, FontStyle.Italic);
-                TextAt(rightPage, "Game design: Saubdiel Avalos\n\nArt & animation: Kay Lousberg / KayKit\n\nCafe sounds: Bramble & Byte\n\nUI font: Fredoka Project Authors\n\nMenu inspiration: Undercooked\nUI references: Overcooked / Nielisson", new Vector2(0, 55), new Vector2(700, 500), 30, true);
+                TextAt(rightPage, "Game design: Saubdiel Avalos\n\nArt & animation: Kay Lousberg / KayKit\n\nCafe sounds: Bramble & Byte\n\nUI font: Fredoka Project Authors\n\nMenu inspiration: Undercooked\nUI references: Overcooked / Nielisson", new Vector2(0, 90), new Vector2(700, 440), 30, true);
+                AddOption("Music credits", -225, () => Show("MusicCredits"), 44, 76);
                 AddOption("Back to the menu", -340, () => Show("Menu"));
             }
 
@@ -111,13 +127,14 @@ namespace MonsterKitchen
 
         // Create a clickable row and save it for keyboard navigation. Mouse and keyboard both
         // invoke the same button action, so they cannot drift into different menu behavior.
-        void AddOption(string text, float y, Action action)
+        // Smaller rows keep artist and license links readable without crowding the credits page.
+        void AddOption(string text, float y, Action action, int fontSize = 52, float rowHeight = 90)
         {
             int index = buttons.Count;
             var go = new GameObject(text, typeof(RectTransform), typeof(Image), typeof(Button));
             go.transform.SetParent(rightPage, false);
             var rect = (RectTransform)go.transform;
-            rect.sizeDelta = new Vector2(720, 90);
+            rect.sizeDelta = new Vector2(720, rowHeight);
             rect.anchoredPosition = new Vector2(0, y);
             var image = go.GetComponent<Image>();
             image.color = Color.clear;
@@ -131,7 +148,7 @@ namespace MonsterKitchen
                 AudioFeedback.Play("confirm");
                 action();
             });
-            var label = TextAt(rect, text, Vector2.zero, new Vector2(700, 86), 52, true);
+            var label = TextAt(rect, text, Vector2.zero, new Vector2(700, rowHeight - 4), fontSize, true);
             labels.Add(label);
             buttons.Add(button);
             var eventTrigger = go.AddComponent<EventTrigger>();
@@ -194,7 +211,9 @@ namespace MonsterKitchen
                 return;
             if (keyboard.escapeKey.wasPressedThisFrame)
             {
-                if (page != "Menu")
+                if (page == "MusicCredits")
+                    Show("Credits");
+                else if (page != "Menu")
                     Show("Menu");
                 return;
             }

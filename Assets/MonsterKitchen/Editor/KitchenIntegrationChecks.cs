@@ -407,6 +407,153 @@ namespace MonsterKitchen.Editor
             }
         }
 
+        // Follow the real session states while checking the music sources. Earlier orders are
+        // resolved quickly to reach both endings. Seeking near each song's end checks looping
+        // without waiting through several minutes of music for every test run.
+        public static async Task<string> Music()
+        {
+            if (!Application.isPlaying)
+                throw new Exception("Enter Play mode at the cookbook first.");
+            checks = 0;
+            LastResult = "Checking music and ambience removal";
+            float originalMaster = AudioListener.volume;
+            float savedVolume = PlayerPrefs.GetFloat("MonsterKitchen.MasterVolume", .75f);
+            int savedMute = PlayerPrefs.GetInt("MonsterKitchen.Muted", 0);
+            BeginInput();
+            try
+            {
+                Require(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Title", "music check starts at the cookbook");
+                await Task.Delay(800);
+                var player = MusicPlayer.Instance;
+                Require(player != null, "shared music player exists");
+
+                async Task<AudioSource> CheckSong(string title)
+                {
+                    await Task.Delay(800);
+                    Require(MusicPlayer.Instance && MusicPlayer.Instance.CurrentClip.name == title, "requested track is " + title);
+                    var playing = MusicPlayer.Instance.GetComponents<AudioSource>().Where(a => a.isPlaying && a.volume > .001f).ToArray();
+                    Require(playing.Length == 1 && playing[0].clip.name == title, "only the expected song remains after the fade");
+                    Require(playing[0].loop && playing[0].spatialBlend == 0, "music loops in stereo screen space");
+                    Require(UnityEngine.Object.FindObjectsByType<AudioSource>().All(a => !a.clip || !a.clip.name.StartsWith("ambience", StringComparison.OrdinalIgnoreCase)), "no constant ambience source remains");
+                    return playing[0];
+                }
+
+                async Task CheckLoop(AudioSource song)
+                {
+                    song.timeSamples = song.clip.samples - (int)(song.clip.frequency * .12f);
+                    await Task.Delay(450);
+                    Require(song.isPlaying && song.timeSamples < song.clip.frequency, "song wraps and keeps playing: " + song.clip.name);
+                }
+
+                var titleSong = await CheckSong("Lily-Paddling Down the Stream");
+                await CheckLoop(titleSong);
+                int before = titleSong.timeSamples;
+                GameSession.Instance.BeginBriefing();
+                await Task.Delay(450);
+                Require(GameSession.Instance.State == RunState.Briefing, "kitchen waits at briefing");
+                Require(MusicPlayer.Instance == player && titleSong.isPlaying && titleSong.timeSamples > before, "title song keeps its place across the scene load");
+                GameSession.Instance.StartShift();
+                var jazz = await CheckSong("Jazzy Shop");
+                before = jazz.timeSamples;
+                await Task.Delay(350);
+                Require(jazz.timeSamples > before, "session timer events do not restart the song");
+                float normalVolume = jazz.volume;
+                GameSession.Instance.TogglePause();
+                before = jazz.timeSamples;
+                await Task.Delay(800);
+                Require(jazz.isPlaying && jazz.timeSamples > before && jazz.volume < normalVolume, "pause softens music while keeping its place");
+                GameSession.Instance.TogglePause();
+                await Task.Delay(800);
+                Require(Mathf.Approximately(jazz.volume, normalVolume), "resume restores music level");
+                bool wasMuted = AudioListener.volume == 0;
+                await Press(Key.M);
+                Require(wasMuted ? AudioListener.volume > 0 : AudioListener.volume == 0, "the existing mute key also controls music");
+                await Press(Key.M);
+                Require(wasMuted ? AudioListener.volume == 0 : AudioListener.volume > 0, "second mute press restores the previous sound state");
+                await CheckLoop(jazz);
+
+                // A half-filled cue list must not throw and interrupt a menu or station action.
+                var clips = AudioFeedback.Instance.Clips;
+                try
+                {
+                    AudioFeedback.Instance.Clips = null;
+                    AudioFeedback.Play("pickup");
+                }
+                finally
+                {
+                    AudioFeedback.Instance.Clips = clips;
+                }
+                Require(true, "missing effect clips are safely ignored");
+
+                var session = GameSession.Instance;
+                int guard = 0;
+                while (session.IsRunning && guard++ < 180)
+                {
+                    foreach (var order in session.Orders.ToArray())
+                    {
+                        order.AtCounter = true;
+                        string reason;
+                        session.TryServe(order.Slot, order.Food, order.Required, out reason);
+                        if (!session.IsRunning)
+                            break;
+                    }
+                    await Task.Delay(200);
+                }
+                Require(session.State == RunState.Won && session.Served == 8, "successful shift reaches the result screen");
+                var resultSong = await CheckSong("Quircky Shop");
+                await CheckLoop(resultSong);
+                session.RestartShift();
+                await CheckSong("Jazzy Shop");
+
+                guard = 0;
+                while (session.IsRunning && guard++ < 100)
+                {
+                    foreach (var order in session.Orders)
+                    {
+                        order.AtCounter = true;
+                        order.Remaining = .01f;
+                    }
+                    await Task.Delay(250);
+                }
+                Require(session.State == RunState.Lost, "missed orders reach the other ending");
+                await CheckSong("Quircky Shop");
+                session.ReturnToTitle();
+                await CheckSong("Lily-Paddling Down the Stream");
+
+                // Rapid scene changes interrupt fades. They must reuse the same two sources,
+                // rather than leave extra persistent players or multiple copies of a song.
+                for (int i = 0; i < 2; i++)
+                {
+                    GameSession.Instance.BeginBriefing();
+                    await Task.Delay(120);
+                    GameSession.Instance.StartShift();
+                    await Task.Delay(120);
+                    GameSession.Instance.ReturnToTitle();
+                    await Task.Delay(120);
+                }
+                await CheckSong("Lily-Paddling Down the Stream");
+                Require(UnityEngine.Object.FindObjectsByType<MusicPlayer>().Length == 1 && MusicPlayer.Instance == player, "scene changes keep exactly one music player");
+                Require(MusicPlayer.Instance.GetComponents<AudioSource>().Length == 2, "crossfades keep exactly two music sources");
+                Require(UnityEngine.Object.FindObjectsByType<AudioListener>().Length == 1, "only the current scene camera listens to audio");
+                LastResult = checks + " music checks passed (tracks, loops, pause, mute, both endings, retry, scene changes and no ambience).";
+                Debug.Log(LastResult);
+                return LastResult;
+            }
+            catch (Exception e)
+            {
+                LastResult = e.Message;
+                Debug.LogError(e);
+                throw;
+            }
+            finally
+            {
+                EndInput();
+                PlayerPrefs.SetFloat("MonsterKitchen.MasterVolume", savedVolume);
+                PlayerPrefs.SetInt("MonsterKitchen.Muted", savedMute);
+                AudioListener.volume = originalMaster;
+            }
+        }
+
         // Use keyboard input to go from cookbook help to the kitchen briefing, play and pause.
         public static async Task<string> Menu()
         {

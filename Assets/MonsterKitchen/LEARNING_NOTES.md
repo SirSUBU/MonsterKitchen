@@ -125,9 +125,13 @@ The restaurant tags also use small world-space Canvases and the same rounded fon
 
 ## Sound
 
-**AudioFeedback.Play("pickup")** looks up a named cue and plays its clip once. Ambience and optional music use their own looping AudioSources, so an effect does not interrupt them. The stove owns its sizzle source because it needs to start and stop with cooking.
+**AudioFeedback.Play("pickup")** looks up a named cue and plays its clip once. It checks both cue arrays before reading them, so an incomplete sound setup stays silent instead of throwing an error. The stove owns its sizzle source because it needs to start and stop with cooking. There is no constant ambience loop.
 
-Master volume and mute use `AudioListener.volume`. Both menu systems save the same PlayerPrefs keys, so returning to the cookbook keeps the chosen settings. See MUSIC_IMPORT.md for assigning a new track.
+**AudioFeedback.RefreshMusic** chooses a song from the session state. **MusicPlayer** lives on a separate object that survives scene changes. It has two AudioSources: the outgoing song fades down while the incoming song fades up. The same clip is never started twice, and repeated timer notifications do not restart its fade.
+
+The fade uses unscaled time so it works while gameplay is stopped. Pausing lowers the current song without stopping it. The title song continues through the briefing; gameplay and results switch to their assigned songs. This separation is useful in another game too: keep short effects with scene objects, and give continuous music its own lifetime.
+
+Master volume and mute use `AudioListener.volume`. Both menu systems save the same PlayerPrefs keys, so returning to the cookbook keeps the chosen settings. See MUSIC_IMPORT.md for the current tracks, import settings and how to replace one.
 
 ## The Editor files
 
@@ -139,6 +143,7 @@ These tools help create or verify the project. They are not part of the built pl
 | CookbookSceneBuilder | Build the book, table, props and title camera |
 | KitchenAssetSetup | Prepare materials, rigs, clips and animation controllers |
 | KitchenUIFontSetup | Create the saved TMP font atlas |
+| KitchenMusicSetup | Import the three songs and assign their roles in both scenes |
 | KitchenPlayEntry | Start Editor Play at Title even when editing Kitchen |
 | KitchenIntegrationChecks | Run keyboard, cooking, route and menu checks against the live game |
 

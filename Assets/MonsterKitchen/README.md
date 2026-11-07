@@ -31,7 +31,7 @@ The receipt stays open when the shift ends. Release the last serving key, then c
 - [LEARNING_NOTES.md](LEARNING_NOTES.md): a walkthrough of the scripts, including how a plate gets from a crate to a guest.
 - [ASSIGNMENT_NOTES.md](ASSIGNMENT_NOTES.md): where the assignment requirements appear in the game and notes for the class GDD.
 - [ASSET_SOURCES.md](ASSET_SOURCES.md): source links, credits and what was actually imported.
-- [MUSIC_IMPORT.md](MUSIC_IMPORT.md): how to add the requested background track when its file is available.
+- [MUSIC_IMPORT.md](MUSIC_IMPORT.md): the current soundtrack, playback behavior and how to change a song.
 - [DEVELOPMENT_STATUS.md](DEVELOPMENT_STATUS.md): fixes, checks and build results.
 
 The main scenes are [Title](Scenes/Title.unity) and [Kitchen](Scenes/Kitchen.unity). Cameras, props, counters and route markers are ordinary scene objects. You can move them in the Editor and save the scene.
@@ -54,8 +54,8 @@ Change one thing, play it, then make the next change. That makes it easier to te
 
 ## Credits
 
-Game design: **Saubdiel Avalos**. The models and character animations are **KayKit by Kay Lousberg**. Cafe audio is **Cozy Cafe SFX by Bramble & Byte**. The paper UI uses **Fredoka by the Fredoka Project Authors**.
+Game design: **Saubdiel Avalos**. The models and character animations are **KayKit by Kay Lousberg**. Action sounds are **Cozy Cafe SFX by Bramble & Byte**. Music is by **Fablefly Music** and **Tim Reichert**. The paper UI uses **Fredoka by the Fredoka Project Authors**.
 
 The cookbook was inspired by **Undercooked: Cook It Now**. The supplied **Overcooked** references and **Restaurant UI by Nielisson** helped guide the paper menus and results presentation. Their artwork and game code were not imported. Full links and license notes are in the source list above.
 
-The requested OSTnull track is not included yet. Cafe ambience and action sounds are already part of the game.
+The cookbook and briefing use Lily-Paddling Down the Stream, gameplay uses Jazzy Shop, and both endings use Quircky Shop. The constant ambience loop has been removed. Music credits and license links are also available inside the cookbook.

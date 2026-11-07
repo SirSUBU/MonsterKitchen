@@ -1,24 +1,30 @@
-# Adding the background music
+# Music and playback settings
 
-The chosen track is [Cozy Cooking by OSTnull](https://audiomack.com/ostnull/song/cozy-cooking). It is not in the project yet. The game currently uses cafe ambience and action sounds from the supplied Cozy Cafe pack.
+The soundtrack is now imported and connected in both scenes.
 
-Audiomack's Download option makes a copy for offline listening inside its app; it does not give you a normal audio file to drag into Unity. The public track and artist pages did not provide a separate file download or game-use license when checked. [Audiomack explains its offline downloads here.](https://audiomack.zendesk.com/hc/en-us/articles/360013834432-How-do-you-download-music-on-Audiomack)
+| Part of the game | Track | Creator |
+| --- | --- | --- |
+| Cookbook and pre-shift briefing | Lily-Paddling Down the Stream | Fablefly Music |
+| Playing and paused gameplay | Jazzy Shop | Tim Reichert |
+| Both ending screens | Quircky Shop | Tim Reichert |
 
-Ask the creator for an MP3, OGG or WAV and permission to include it in a downloadable student game. Also ask what credit they want. A WAV is optional: [Unity accepts all three formats](https://docs.unity.com/en-us/engine/6000.0/manual/audio/files/compatibility). Converting an MP3 to WAV will not improve the original sound quality.
+The files are in `Audio/Music`. The original pack spells the last title **Quircky Shop**, so the filename and credit use that spelling. [CREDITS.txt](Audio/Music/CREDITS.txt) has the creator links and licenses; the same credits are available from the cookbook's Credits page.
 
-## Once you have the file
+## How playback works
 
-1. Create `Assets/MonsterKitchen/Audio/Music` in Unity's Project panel and drag the audio file into it. Add the creator's credit and permission to the source notes.
-2. Open `Scenes/Title.unity`. Find the object with the **Audio Feedback** component and drag the clip into **Music**. Start with **Music Volume** at **0.3**.
-3. Open `Scenes/Kitchen.unity` and assign the same clip to its Audio Feedback component. Save both scenes.
-4. Press Play and listen against the cooking sounds. The music loops automatically and uses the existing volume and mute controls. Check the end of the loop for a gap or click.
+`AudioFeedback` reads the current GameSession state and requests its song. `MusicPlayer` keeps two AudioSources on a separate object that survives scene changes. One song fades out as the other fades in over 0.65 seconds. Repeated requests for the same song do nothing, so timer updates cannot restart it.
 
-Each scene has its own audio player, so the track currently starts over when switching between the cookbook and kitchen. Leaving Music empty is fine; the existing sounds still work.
+The title music keeps playing when the kitchen briefing opens. Starting service changes to jazz. Pause lowers the jazz to 70% of its normal level and keeps its place. Resume brings it back up. The existing volume slider and M key affect the music and effects together.
 
-If another tool specifically needs a WAV, FFmpeg can convert a source file you already have:
+The constant cafe ambience has been removed. Action sounds and stove sizzling still play when those actions happen.
 
-```powershell
-ffmpeg -i "cozy-cooking.mp3" -c:a pcm_s16le "cozy-cooking.wav"
-```
+## Changing a song later
 
-This conversion is not needed just to import the track into Unity.
+1. Import the replacement audio and record its creator and license in the credits.
+2. Open Title and Kitchen. On each scene's AudioFeedback component, assign **Title Music**, **Gameplay Music** and **Results Music**. The normal **Music Volume** is 0.3.
+3. Save both scenes and check the title, briefing, gameplay, pause, ending and retry.
+4. If using the scene builders later, update the filenames in `Editor/KitchenMusicSetup.cs` too. The builders call its Assign method so they keep the soundtrack connected.
+
+The supplied WAV files are unchanged. Unity imports stereo Vorbis playback copies at quality 0.85, preserves the 44.1 kHz sample rate and streams them. `KitchenMusicSetup.Configure` applies those settings and assigns the clips without rebuilding the room.
+
+The shop music uses [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), so it is for noncommercial use. Lily uses [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Keep the credits and links when distributing the game.

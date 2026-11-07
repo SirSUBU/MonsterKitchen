@@ -20,7 +20,7 @@ The player can also make charred food on purpose. The game checks what was serve
 | Map collision | Solid walls and counters stop the chef | CharacterController, KitchenSceneBuilder.Boundary/Station |
 | Interactive collision | Station reach triggers select a target and show its action | KitchenStation.OnTriggerEnter/Exit, PlayerChef.SelectTarget |
 | Continuous movement | Held keys move the chef each frame | PlayerChef.Update/Move |
-| Sound | Pickup, placement, cooking, service and menu cues, plus cafe ambience | AudioFeedback, KitchenStation.Update |
+| Sound | Pickup, placement, cooking, service and menu cues, with separate title, gameplay and results music | AudioFeedback, KitchenStation.Update |
 | Action beyond movement | Taking, placing, collecting, serving and discarding food | KitchenStation.Interact |
 | Level design | Supplies, hotplates, resting space and serving counters require crossing and managing the room | Kitchen scene, KitchenSceneBuilder |
 | Visual design | Matching KayKit models, physical cookbook, paper orders and receipt results | Title/Kitchen scenes, KitchenUI |
@@ -34,7 +34,7 @@ This project uses 3D character models instead of a 2D sprite sheet. The visual-s
 - The game has one kitchen and a fixed ten-order sequence. It is a small complete shift, not a level campaign.
 - Explain the recovery example above and why the first customer's order does not disappear.
 - Include the external links from ASSET_SOURCES.md. Distinguish imported assets from games used only as references.
-- The requested OSTnull music has not been imported yet. The current audio comes from the supplied cafe pack.
+- The soundtrack uses Lily-Paddling Down the Stream by Fablefly Music and Jazzy Shop / Quircky Shop by Tim Reichert. Include the track, creator and license links from the credits. The two shop tracks have a noncommercial license.
 - Add the final downloadable project link when preparing the submission. A private GitHub repository alone is not automatically accessible to a grader.
 
 The professor's code guidance asks for meaningful names and enough comments for another student to understand the approach. The comments here explain the purpose of a section, the data it uses, and the less obvious cases instead of repeating every line in English.

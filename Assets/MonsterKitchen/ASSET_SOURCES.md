@@ -14,6 +14,18 @@ This list separates the assets used in the project from the games used as refere
 
 Keep the included licenses with the project. The source sounds belong inside the game project, not in a separate public sound download.
 
+The music is also credited in the cookbook under **Credits > Music credits** and in [Audio/Music/CREDITS.txt](Audio/Music/CREDITS.txt).
+
+| Music | Use | Creator and license |
+| --- | --- | --- |
+| [Lily-Paddling Down the Stream](https://fablefly-music.itch.io/lily-paddling-down-the-stream) | Title and briefing | **Fablefly Music**, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| [Jazzy Shop](https://fulminisictus.itch.io/convenience-store-audio-pack) | Gameplay | **[Tim Reichert](https://tim-reichert.com)**, [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
+| [Quircky Shop](https://fulminisictus.itch.io/convenience-store-audio-pack) | Both results screens | **[Tim Reichert](https://tim-reichert.com)**, [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
+
+The two shop tracks came from the supplied Convenience Store Audio Pack archive. Its ReadMe requests the Tim Reichert credit and website link, and recommends fading in Jazzy Shop. The original ReadMe is retained beside the songs. The music has a noncommercial license; the pack's separate CC0 sound-effect license does not apply to these songs.
+
+The original WAV recordings are unchanged. Unity encodes playback copies, and the game loops them with volume fades. `Audio/Music/music-manifest.json` records their original filenames, hashes and audio properties. The old constant cafe ambience is no longer played; the existing cafe action sounds remain.
+
 ## Games and art used as references
 
 - [Undercooked: Cook It Now](https://diego-sevilla.itch.io/undercooked-cookitnow) helped guide the cookbook menu. Monster Kitchen's book and page UI were built in Unity; the reference game's textures were not imported.
@@ -23,7 +35,7 @@ Keep the included licenses with the project. The source sounds belong inside the
 - [Undercooked- by kwiruu](https://github.com/kwiruu/Undercooked-) was another mechanics reference. It uses Java/libGDX, and no source or assets were imported.
 - The supplied `DisasterChef.rar` contained a compiled Windows game. It was not used as editable source or imported into Unity.
 
-The requested music is [Cozy Cooking by OSTnull](https://audiomack.com/ostnull/song/cozy-cooking). It is not included yet because an importable file and permission for game use have not been supplied. [MUSIC_IMPORT.md](MUSIC_IMPORT.md) explains how to add it when those are available.
+The earlier [Cozy Cooking by OSTnull](https://audiomack.com/ostnull/song/cozy-cooking) suggestion remained a reference and was not imported. [MUSIC_IMPORT.md](MUSIC_IMPORT.md) now explains the chosen soundtrack and how its playback works.
 
 ## How the imported assets are connected
 
