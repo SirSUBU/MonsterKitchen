@@ -407,7 +407,9 @@ namespace MonsterKitchen.Editor
                 carryMachine.defaultState = empty;
                 Transition(empty, carry, AnimatorConditionMode.If, "Carrying", 0);
                 Transition(carry, empty, AnimatorConditionMode.IfNot, "Carrying", 0);
-                controller.AddLayer(new AnimatorControllerLayer { name = "Carry arms", defaultWeight = 1f, avatarMask = mask, blendingMode = AnimatorLayerBlendingMode.Override, stateMachine = carryMachine });
+                // Start with free arms. PlayerChef raises this layer's weight only while
+                // holding food, then fades it away so its last pose cannot stay stuck.
+                controller.AddLayer(new AnimatorControllerLayer { name = "Carry arms", defaultWeight = 0f, avatarMask = mask, blendingMode = AnimatorLayerBlendingMode.Override, stateMachine = carryMachine });
             }
 
             EditorUtility.SetDirty(controller);

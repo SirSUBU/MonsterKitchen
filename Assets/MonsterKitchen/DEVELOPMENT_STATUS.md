@@ -1,4 +1,18 @@
-# Level select and code review — 6 November 2026
+# Witch arm pose — 6 November 2026
+
+The witch's carrying layer was keeping its last arm pose after a plate was put down. The Carrying flag changed correctly, but the empty Free hands state still left the arm override active. This was reproduced by picking up and releasing food, then comparing the actual arm bones with the carrying layer turned off.
+
+PlayerChef now fades that layer out over 0.12 seconds when the hands are empty. Idle and walking can control the arms again. The update runs on the ending screen too, so serving guest eight does not leave the witch holding an invisible plate. Pause freezes the pose; retry clears the carrying layer immediately. The saved controller and its setup script both start the layer at zero weight.
+
+The code comments and learning notes explain why an empty animation state was not enough. The Editor check helper also keeps the original input settings alive while using its temporary keyboard settings, then restores them afterward.
+
+**41 live Editor checks passed:** 21 for the chef's arm poses and 20 for the last delivery, result screen, retry and return to the cookbook. The pose checks inspect the actual upper-arm bones after using a resting counter, stove and bin, while walking, and after pause and retry. Both E and Space were used to serve the last guest. The input settings were restored after the checks, and the runtime console had no warnings or errors.
+
+Close-up captures were also inspected with empty hands and while carrying. They are saved locally as `Screenshots/chef-free-arms.png` and `Screenshots/chef-carry-arms.png`. The check summary is in `Screenshots/chef-arms-checks.txt`. Earlier orders were resolved quickly to reach the ending; this was a targeted Editor check, not a full natural-speed standalone playthrough.
+
+Windows build `build_399e33f97401` succeeded in about 12 seconds with **0 errors** and the same 499 package shader warnings as before. The updated player is at `Builds/Windows/MonsterKitchen.exe`. The Editor is left outside Play mode at Title; the close-up camera existed only during the check.
+
+## Previous revision: level select and code review
 
 Start cooking now opens a level-select page inside the cookbook. The jam version lists one playable level, The little kitchen. Choosing it rings the door bell and opens its briefing; turning pages does not start the shift or restart the title music.
 

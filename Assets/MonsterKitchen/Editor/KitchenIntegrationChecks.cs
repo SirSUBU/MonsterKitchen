@@ -18,6 +18,7 @@ namespace MonsterKitchen.Editor
         static Key[] held = Array.Empty<Key>();
         static Keyboard testKeyboard, originalKeyboard;
         static InputSettings originalSettings, testSettings;
+        static HideFlags originalSettingsFlags;
         // Stop at the first failed expectation and include its description in the error.
         static void Require(bool value, string message)
         {
@@ -39,6 +40,11 @@ namespace MonsterKitchen.Editor
         {
             originalKeyboard = Keyboard.current;
             originalSettings = InputSystem.settings;
+            // Input System destroys its temporary HideAndDontSave settings when they are replaced.
+            // Give the original a different lifetime flag while the test copy is active, so we
+            // can put the same settings object back afterward. Restore its old flags too.
+            originalSettingsFlags = originalSettings.hideFlags;
+            originalSettings.hideFlags = HideFlags.DontUnloadUnusedAsset;
             testSettings = UnityEngine.Object.Instantiate(originalSettings);
             testSettings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
             testSettings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
@@ -59,6 +65,7 @@ namespace MonsterKitchen.Editor
             if (originalKeyboard != null && originalKeyboard.added)
                 originalKeyboard.MakeCurrent();
             InputSystem.settings = originalSettings;
+            originalSettings.hideFlags = originalSettingsFlags;
             if (testSettings)
                 UnityEngine.Object.Destroy(testSettings);
         }
@@ -363,6 +370,10 @@ namespace MonsterKitchen.Editor
                     Require(UnityEngine.Object.FindObjectsByType<TMPro.TMP_Text>().Any(t => t.text == "Shift complete" && t.gameObject.activeInHierarchy), "ending receipt is visible");
                     await Task.Delay(450);
                     Require(session.State == RunState.Won, "ending waits after the serving key is released");
+                    var chef = PlayerChef.Instance;
+                    Require(!chef.Held && !chef.Animator.GetBool("Carrying") &&
+                        chef.Animator.GetLayerWeight(chef.Animator.GetLayerIndex("Carry arms")) == 0,
+                        "the final delivery releases the arm pose even after gameplay stops");
                     // Capture the actual keyboard-delivered ending before choosing Retry.
                     ScreenCapture.CaptureScreenshot("Screenshots/win-final-" + finishKey.ToString().ToLowerInvariant() + ".png");
                     await Task.Delay(200);
@@ -749,6 +760,87 @@ namespace MonsterKitchen.Editor
                 await Press(Key.Escape);
                 Require(GameSession.Instance.State == RunState.Paused, "keyboard pauses after menu transition");
                 LastResult = checks + " cookbook navigation checks passed.";
+                return LastResult;
+            }
+            catch (Exception e)
+            {
+                LastResult = e.Message;
+                Debug.LogError(e);
+                throw;
+            }
+            finally
+            {
+                EndInput();
+            }
+        }
+
+        // Compare the witch's actual arm bones before and after a transfer. Checking only the
+        // Carrying flag missed the original bug: it was false while the arms still held their pose.
+        public static async Task<string> ChefArms()
+        {
+            checks = 0;
+            LastResult = "Checking chef arm poses";
+            BeginInput();
+            try
+            {
+                var session = GameSession.Instance;
+                session.RestartShift();
+                await Task.Delay(350);
+                var chef = PlayerChef.Instance;
+                var animator = chef.Animator;
+                int layer = animator.GetLayerIndex("Carry arms");
+                var arms = animator.GetComponentsInChildren<Transform>()
+                    .Where(t => t.name == "upperarm.l" || t.name == "upperarm.r").ToArray();
+                Require(layer >= 0 && arms.Length == 2, "chef has a carry layer and both arm bones");
+                Quaternion[] Pose() => arms.Select(t => t.localRotation).ToArray();
+                float Difference(Quaternion[] a, Quaternion[] b) => a.Zip(b, Quaternion.Angle).Max();
+                var relaxed = Pose();
+                Require(!chef.Held && animator.GetLayerWeight(layer) == 0, "empty hands start with the normal idle pose");
+                var supply = KitchenStation.All.First(s => s.Type == StationType.Supply && s.SupplyFood == FoodKind.Patty);
+
+                foreach (var destination in new[] { Find(StationType.Counter), Find(StationType.Hotplate), Find(StationType.Trash) })
+                {
+                    Require(supply.Interact(chef), "pick up food before testing " + destination.name);
+                    await Task.Delay(350);
+                    Require(animator.GetBool("Carrying") && Difference(relaxed, Pose()) > 15, "holding food raises the arms");
+                    Require(destination.Interact(chef), "put food down at " + destination.name);
+                    await Task.Delay(400);
+                    Require(!chef.Held && !animator.GetBool("Carrying") && Difference(relaxed, Pose()) < 8,
+                        "arms return to idle after " + destination.name);
+                }
+
+                // Walking should swing the empty arms, rather than leaving a frozen holding pose.
+                held = new[] { Key.W };
+                await Task.Delay(300);
+                var walking = Pose();
+                await Task.Delay(180);
+                Require(animator.GetCurrentAnimatorStateInfo(0).IsName("Walk") && Difference(walking, Pose()) > 1,
+                    "empty-handed walking animates the arm bones");
+                held = Array.Empty<Key>();
+                await Task.Delay(300);
+                Require(supply.Interact(chef), "pick up food for the pause check");
+                await Task.Delay(350);
+                session.TogglePause();
+                await Task.Delay(80);
+                var paused = Pose();
+                await Task.Delay(250);
+                Require(Difference(paused, Pose()) < .01f, "pause keeps the carrying pose still");
+                session.TogglePause();
+                Require(Find(StationType.Trash).Interact(chef), "discard after resuming");
+                await Task.Delay(400);
+                Require(Difference(relaxed, Pose()) < 8, "resuming and releasing food restores free arms");
+
+                // Retry must clear the arm override immediately, even if the old shift was paused.
+                supply.Interact(chef);
+                await Task.Delay(350);
+                session.TogglePause();
+                session.RestartShift();
+                Require(!chef.Held && !animator.GetBool("Carrying") && animator.GetLayerWeight(layer) == 0,
+                    "retry immediately clears food and the carrying layer");
+                await Task.Delay(350);
+                Require(Difference(relaxed, Pose()) < 8, "retry settles back into the relaxed idle pose");
+                LastResult = checks + " chef arm checks passed (idle, walking, pickup, counters, stove, bin, pause and retry).";
+                Debug.Log(LastResult);
                 return LastResult;
             }
             catch (Exception e)

@@ -87,7 +87,7 @@ The recovery moment does not erase the original order. If the vampire wanted coo
 
 The Animator uses the supplied KayKit clips. Its `Speed` parameter chooses idle or walking; `Wave` greets the chef and `Cheer` reacts to a successful meal. Root motion is disabled because the route script already controls the character's position.
 
-The chef uses a similar idle/walk setup. A carrying layer uses an arm mask, which means the arms can hold a plate while the legs keep walking. **KitchenAssetSetup.CreateArmsMask** and **CreateController** show how that is assembled in the Editor.
+The chef uses a similar idle/walk setup. A carrying layer uses an arm mask, which means the arms can hold a plate while the legs keep walking. **KitchenAssetSetup.CreateArmsMask** and **CreateController** show how that is assembled in the Editor. **PlayerChef.RefreshCarryPose** fades that layer's weight to one while holding food and back to zero after releasing it. An empty animation state alone can keep its previous pose; turning its weight down lets the normal idle or walking clip move the arms again. This also updates on the result screen, since the final delivery can end gameplay. Pause freezes the pose, and retry clears the override immediately.
 
 ## Screens, pause and restart
 

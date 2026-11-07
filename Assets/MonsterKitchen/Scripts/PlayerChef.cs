@@ -27,6 +27,8 @@ namespace MonsterKitchen
         Quaternion initialRotation;
         float interactCooldown;
         Vector3 velocity;
+        int carryLayer = -1;
+        const float CarryBlendSeconds = .12f;
         // Save the CharacterController and the starting pose once when the scene loads.
         void Awake()
         {
@@ -34,6 +36,9 @@ namespace MonsterKitchen
             controller = GetComponent<CharacterController>();
             initialPosition = transform.position;
             initialRotation = transform.rotation;
+            if (Animator)
+                carryLayer = Animator.GetLayerIndex("Carry arms");
+            RefreshCarryPose(true);
         }
 
         // Read movement every frame while the shift is running. E/Space use a fresh key press
@@ -42,8 +47,15 @@ namespace MonsterKitchen
         {
             var session = GameSession.Instance;
             bool playing = session && session.IsRunning;
+            bool paused = session && session.State == RunState.Paused;
             if (Animator)
-                Animator.speed = session && session.State == RunState.Paused ? 0 : 1;
+            {
+                Animator.speed = paused ? 0 : 1;
+                // Keep the hands in sync on the result screen too. The last delivery can
+                // finish the shift, which means the movement code below will no longer run.
+                if (!paused)
+                    RefreshCarryPose();
+            }
             if (!playing)
             {
                 if (Animator)
@@ -86,10 +98,25 @@ namespace MonsterKitchen
             if (direction.sqrMagnitude > .01f)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), delta * 16);
             if (Animator)
-            {
                 Animator.SetFloat("Speed", velocity.magnitude / MoveSpeed, .08f, delta);
-                Animator.SetBool("Carrying", Held != null);
-            }
+        }
+
+        // An empty animation state does not necessarily let go of the last pose it played.
+        // Fade the arm layer to zero when the hands are empty, so idle/walk can move the arms
+        // again. While carrying, this layer takes over just the arms; the legs still walk.
+        // Reset snaps to empty hands immediately. Normal pickups and deliveries blend gently.
+        void RefreshCarryPose(bool snap = false)
+        {
+            if (!Animator)
+                return;
+            bool carrying = Held != null;
+            Animator.SetBool("Carrying", carrying);
+            if (carryLayer < 0)
+                return;
+            float target = carrying ? 1f : 0f;
+            float weight = snap ? target : Mathf.MoveTowards(
+                Animator.GetLayerWeight(carryLayer), target, Time.deltaTime / CarryBlendSeconds);
+            Animator.SetLayerWeight(carryLayer, weight);
         }
 
         // Consider only stations whose reach trigger contains the chef. Prefer the closest one
@@ -186,7 +213,7 @@ namespace MonsterKitchen
             interactCooldown = .2f;
             if (Animator)
             {
-                Animator.SetBool("Carrying", false);
+                RefreshCarryPose(true);
                 Animator.SetFloat("Speed", 0);
             }
         }
