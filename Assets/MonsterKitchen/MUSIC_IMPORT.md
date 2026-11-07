@@ -1,26 +1,24 @@
-# Adding the Cozy Cooking music
+# Adding the background music
 
-The requested track is [Cozy Cooking by OSTnull](https://audiomack.com/ostnull/song/cozy-cooking). No copy of that track is included in this project yet.
+The chosen track is [Cozy Cooking by OSTnull](https://audiomack.com/ostnull/song/cozy-cooking). It is not in the project yet. The game currently uses cafe ambience and action sounds from the supplied Cozy Cafe pack.
 
-Audiomack's Download button saves an offline copy inside its app, not an audio file you can import into Unity. See [Audiomack's download explanation](https://audiomack.zendesk.com/hc/en-us/articles/360013834432-How-do-you-download-music-on-Audiomack). I checked the public song and artist pages and did not find a separate creator-provided file download or a game-use license there.
+Audiomack's Download option makes a copy for offline listening inside its app; it does not give you a normal audio file to drag into Unity. The public track and artist pages did not provide a separate file download or game-use license when checked. [Audiomack explains its offline downloads here.](https://audiomack.zendesk.com/hc/en-us/articles/360013834432-How-do-you-download-music-on-Audiomack)
 
-The next step is to obtain the track from the creator with permission to use it in the game, including an exported homework build or an itch.io upload if you plan to share one. A useful message to send yourself is:
+Ask the creator for an MP3, OGG or WAV and permission to include it in a downloadable student game. Also ask what credit they want. A WAV is optional: [Unity accepts all three formats](https://docs.unity.com/en-us/engine/6000.0/manual/audio/files/compatibility). Converting an MP3 to WAV will not improve the original sound quality.
 
-> I would like to use Cozy Cooking as looping background music in my student game Monster Kitchen. Could you provide an MP3, OGG or WAV file and let me know the credit and license requirements for including it in a downloadable game?
+## Once you have the file
 
-You do not need a WAV specifically. [Unity supports MP3, OGG and WAV](https://docs.unity.com/en-us/engine/6000.0/manual/audio/files/compatibility), among other formats. Converting an MP3 to WAV does not restore audio quality or grant permission to use it.
+1. Create `Assets/MonsterKitchen/Audio/Music` in Unity's Project panel and drag the audio file into it. Add the creator's credit and permission to the source notes.
+2. Open `Scenes/Title.unity`. Find the object with the **Audio Feedback** component and drag the clip into **Music**. Start with **Music Volume** at **0.3**.
+3. Open `Scenes/Kitchen.unity` and assign the same clip to its Audio Feedback component. Save both scenes.
+4. Press Play and listen against the cooking sounds. The music loops automatically and uses the existing volume and mute controls. Check the end of the loop for a gap or click.
 
-Once you have the file:
+Each scene has its own audio player, so the track currently starts over when switching between the cookbook and kitchen. Leaving Music empty is fine; the existing sounds still work.
 
-1. Create an `Assets/MonsterKitchen/Audio/Music` folder in Unity's Project panel and drag the file into it. Keep the creator's license/permission and required credit alongside the project documentation.
-2. Open `Assets/MonsterKitchen/Scenes/Title.unity`. Find the object with the **Audio Feedback** component and drag the imported clip into its **Music** field. Start with **Music Volume = 0.3**, then adjust by ear against the sound effects.
-3. Repeat the assignment in `Assets/MonsterKitchen/Scenes/Kitchen.unity` and save both scenes. Music loops automatically and follows the game's existing master-volume and mute controls.
-4. Play through a loop boundary to check for silence or a click. The current scene-based audio setup restarts the track when switching between the cookbook and kitchen; continuous cross-scene playback can be added later.
-
-If you still need a WAV for another tool, a local FFmpeg installation can convert an authorized source file:
+If another tool specifically needs a WAV, FFmpeg can convert a source file you already have:
 
 ```powershell
 ffmpeg -i "cozy-cooking.mp3" -c:a pcm_s16le "cozy-cooking.wav"
 ```
 
-The built-in cafe ambience and sound effects remain available while the music field is empty.
+This conversion is not needed just to import the track into Unity.

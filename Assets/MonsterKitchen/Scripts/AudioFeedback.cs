@@ -1,18 +1,25 @@
+// Sounds for the kitchen and cookbook.
+// Other scripts ask for a cue like pickup or serve. This file finds and plays its clip.
 using UnityEngine;
 
 namespace MonsterKitchen
 {
-    /// <summary>Small cue vocabulary keeps cooking rules independent from concrete WAV files.</summary>
     public sealed class AudioFeedback : MonoBehaviour
     {
         public static AudioFeedback Instance { get; private set; }
+
+        // These two arrays match by position: CueNames[0] uses Clips[0], and so on.
+        // The scene builder fills them with the supplied cafe sounds.
         public string[] CueNames;
         public AudioClip[] Clips;
         public AudioClip Ambience;
         [Tooltip("Optional licensed music file. Drag an imported MP3, OGG or WAV here.")]
         public AudioClip Music;
-        [Range(0f,1f)] public float MusicVolume = .3f;
+        [Range(0f, 1f)]
+        public float MusicVolume = .3f;
         AudioSource source, ambienceSource, musicSource;
+        // Keep effects, ambience and music on separate sources so a pickup sound
+        // does not interrupt a loop. Empty music means the game just uses cafe ambience.
         void Awake()
         {
             Instance = this;
@@ -27,6 +34,7 @@ namespace MonsterKitchen
                 ambienceSource.volume = .12f;
                 ambienceSource.Play();
             }
+
             if (Music)
             {
                 musicSource = gameObject.AddComponent<AudioSource>();
@@ -37,13 +45,25 @@ namespace MonsterKitchen
                 musicSource.Play();
             }
         }
+
+        // Look up a short cue name and play it once. A missing cue stays silent.
         public static void Play(string cue)
         {
-            if (!Instance || Instance.CueNames == null) return;
-            for (int i=0;i<Instance.CueNames.Length && i<Instance.Clips.Length;i++)
+            if (!Instance || Instance.CueNames == null)
+                return;
+            for (int i = 0; i < Instance.CueNames.Length && i < Instance.Clips.Length; i++)
                 if (Instance.CueNames[i] == cue && Instance.Clips[i])
-                { Instance.source.PlayOneShot(Instance.Clips[i]); return; }
+                {
+                    Instance.source.PlayOneShot(Instance.Clips[i]);
+                    return;
+                }
         }
-        void OnDestroy() { if (Instance == this) Instance = null; }
+
+        // Clear the shared reference when this scene closes so the next scene can replace it.
+        void OnDestroy()
+        {
+            if (Instance == this)
+                Instance = null;
+        }
     }
 }
