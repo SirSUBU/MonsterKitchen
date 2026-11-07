@@ -76,7 +76,7 @@ namespace MonsterKitchen
             selected = 0;
             if (page == "Menu")
             {
-                AddOption("Start cooking", 220, () => GameSession.Instance.BeginBriefing());
+                AddOption("Start cooking", 220, () => GameSession.Instance.BeginBriefing(), playConfirm: false);
                 AddOption("How to play", 110, () => Show("Help"));
                 AddOption("Sound", 0, () => Show("Sound"));
                 AddOption("Credits", -110, () => Show("Credits"));
@@ -101,18 +101,14 @@ namespace MonsterKitchen
             }
             else if (page == "MusicCredits")
             {
-                // Separate the music credits from the main credits so neither page needs tiny text.
-                // Artist names and licenses are ordinary menu options, usable by mouse or keyboard.
+                // Keep these as plain credits, with one way back to the book.
+                // Full source and license details stay in the credit file included with the game.
                 TextAt(rightPage, "Music credits", new Vector2(0, 390), new Vector2(700, 75), 50, true, FontStyle.Italic);
-                TextAt(rightPage, "Jazzy Shop / Quircky Shop", new Vector2(0, 285), new Vector2(700, 50), 34, true);
-                AddOption("Tim Reichert", 225, () => Application.OpenURL("https://tim-reichert.com"), 38, 60);
-                TextAt(rightPage, "tim-reichert.com", new Vector2(0, 177), new Vector2(700, 34), 26, false);
-                AddOption("CC BY-NC 4.0", 132, () => Application.OpenURL("https://creativecommons.org/licenses/by-nc/4.0/"), 27, 44);
-                TextAt(rightPage, "Lily-Paddling Down the Stream", new Vector2(0, 30), new Vector2(700, 85), 34, true);
-                AddOption("Fablefly Music", -45, () => Application.OpenURL("https://fablefly-music.itch.io/lily-paddling-down-the-stream"), 38, 60);
-                AddOption("CC BY 4.0", -105, () => Application.OpenURL("https://creativecommons.org/licenses/by/4.0/"), 27, 44);
-                TextAt(rightPage, "Original recordings; looped with fades.\nSelect an artist or license for its page.", new Vector2(0, -235), new Vector2(700, 90), 26, true);
-                AddOption("Back to credits", -360, () => Show("Credits"), 46, 76);
+                TextAt(rightPage, "Lily-Paddling Down the Stream", new Vector2(0, 235), new Vector2(700, 85), 34, true);
+                TextAt(rightPage, "Fablefly Music", new Vector2(0, 155), new Vector2(700, 65), 40, true);
+                TextAt(rightPage, "Jazzy Shop / Quircky Shop", new Vector2(0, -5), new Vector2(700, 75), 34, true);
+                TextAt(rightPage, "Tim Reichert", new Vector2(0, -85), new Vector2(700, 65), 40, true);
+                AddOption("Back to credits", -340, () => Show("Credits"), 46, 76);
             }
             else
             {
@@ -127,8 +123,8 @@ namespace MonsterKitchen
 
         // Create a clickable row and save it for keyboard navigation. Mouse and keyboard both
         // invoke the same button action, so they cannot drift into different menu behavior.
-        // Smaller rows keep artist and license links readable without crowding the credits page.
-        void AddOption(string text, float y, Action action, int fontSize = 52, float rowHeight = 90)
+        // Start cooking uses the door bell instead of the usual confirmation click.
+        void AddOption(string text, float y, Action action, int fontSize = 52, float rowHeight = 90, bool playConfirm = true)
         {
             int index = buttons.Count;
             var go = new GameObject(text, typeof(RectTransform), typeof(Image), typeof(Button));
@@ -145,7 +141,8 @@ namespace MonsterKitchen
             {
                 if (!menuInput.Ready)
                     return;
-                AudioFeedback.Play("confirm");
+                if (playConfirm)
+                    AudioFeedback.Play("confirm");
                 action();
             });
             var label = TextAt(rect, text, Vector2.zero, new Vector2(700, rowHeight - 4), fontSize, true);

@@ -11,6 +11,8 @@ namespace MonsterKitchen
         // These two arrays match by position: CueNames[0] uses Clips[0], and so on.
         public string[] CueNames;
         public AudioClip[] Clips;
+        [Header("When the shop opens")]
+        public AudioClip OpeningBell;
         [Header("Music for each part of the game")]
         public AudioClip TitleMusic;
         public AudioClip GameplayMusic;
@@ -54,6 +56,26 @@ namespace MonsterKitchen
 
             float volume = state == RunState.Paused ? MusicVolume * .7f : MusicVolume;
             MusicPlayer.GetOrCreate().SetTrack(clip, volume);
+        }
+
+        // Start cooking immediately loads the kitchen, which removes this scene's normal
+        // effect source. Give the bell its own short-lived object so its tail is not cut off.
+        // It plays once, follows the master volume, and removes itself after the clip finishes.
+        public static void PlayOpeningBell()
+        {
+            if (!Instance || !Instance.OpeningBell)
+                return;
+
+            var bellObject = new GameObject("Shop opening bell");
+            DontDestroyOnLoad(bellObject);
+            var bell = bellObject.AddComponent<AudioSource>();
+            bell.playOnAwake = false;
+            bell.loop = false;
+            bell.spatialBlend = 0;
+            bell.volume = .6f;
+            bell.clip = Instance.OpeningBell;
+            bell.Play();
+            Destroy(bellObject, bell.clip.length + .1f);
         }
 
         // A missing or incomplete cue list should stay silent rather than break an interaction.

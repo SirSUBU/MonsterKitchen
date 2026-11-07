@@ -10,6 +10,7 @@ namespace MonsterKitchen.Editor
     public static class KitchenMusicSetup
     {
         const string Root = "Assets/MonsterKitchen/Audio/Music/";
+        const string BellPath = "Assets/MonsterKitchen/ThirdParty/CozyCafeSFX/SFX/door-bell.wav";
         static readonly string[] Files =
         {
             "Lily-Paddling Down the Stream.wav",
@@ -45,6 +46,15 @@ namespace MonsterKitchen.Editor
                 importer.SaveAndReimport();
             }
 
+            // The short bell should be ready as soon as Start cooking is pressed.
+            var bellImporter = AssetImporter.GetAtPath(BellPath) as AudioImporter;
+            if (!bellImporter)
+                throw new InvalidOperationException("The supplied door-bell sound is missing.");
+            var bellSettings = bellImporter.defaultSampleSettings;
+            bellSettings.preloadAudioData = true;
+            bellImporter.defaultSampleSettings = bellSettings;
+            bellImporter.SaveAndReimport();
+
             foreach (string name in new[] { "Title", "Kitchen" })
             {
                 var scene = EditorSceneManager.OpenScene("Assets/MonsterKitchen/Scenes/" + name + ".unity");
@@ -58,7 +68,7 @@ namespace MonsterKitchen.Editor
             }
             if (!string.IsNullOrEmpty(previousPath))
                 EditorSceneManager.OpenScene(previousPath);
-            return "Assigned title, gameplay and results music in both scenes. Constant ambience removed.";
+            return "Assigned the three music tracks and the shop-opening bell in both scenes.";
         }
 
         // Both scenes know all three songs. This lets the music survive a scene change
@@ -69,6 +79,9 @@ namespace MonsterKitchen.Editor
             audio.GameplayMusic = Load(Files[1]);
             audio.ResultsMusic = Load(Files[2]);
             audio.MusicVolume = .3f;
+            audio.OpeningBell = AssetDatabase.LoadAssetAtPath<AudioClip>(BellPath);
+            if (!audio.OpeningBell)
+                throw new InvalidOperationException("Missing shop-opening bell: " + BellPath);
         }
 
         static AudioClip Load(string file)

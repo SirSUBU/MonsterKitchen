@@ -8,13 +8,17 @@ The soundtrack is now imported and connected in both scenes.
 | Playing and paused gameplay | Jazzy Shop | Tim Reichert |
 | Both ending screens | Quircky Shop | Tim Reichert |
 
-The files are in `Audio/Music`. The original pack spells the last title **Quircky Shop**, so the filename and credit use that spelling. [CREDITS.txt](Audio/Music/CREDITS.txt) has the creator links and licenses; the same credits are available from the cookbook's Credits page.
+The files are in `Audio/Music`. The original pack spells the last title **Quircky Shop**, so the filename and credit use that spelling. The cookbook lists the tracks and artists as plain text. [CREDITS.txt](Audio/Music/CREDITS.txt) keeps the full creator links and licenses and is also included beside the Windows build.
 
 ## How playback works
 
 `AudioFeedback` reads the current GameSession state and requests its song. `MusicPlayer` keeps two AudioSources on a separate object that survives scene changes. One song fades out as the other fades in over 0.65 seconds. Repeated requests for the same song do nothing, so timer updates cannot restart it.
 
 The title music keeps playing when the kitchen briefing opens. Starting service changes to jazz. Pause lowers the jazz to 70% of its normal level and keeps its place. Resume brings it back up. The existing volume slider and M key affect the music and effects together.
+
+All three songs loop for as long as their screen is open. Reaching the end of a recording does not change scenes or leave the game silent; Unity returns to the start of that song.
+
+Choosing **Start cooking** rings `door-bell.wav` from the supplied Cozy Cafe SFX pack instead of the regular menu confirmation sound. The bell has a temporary source that survives the scene load, plays once, then removes itself. The bell uses the same master volume and mute setting as the rest of the game. It does not delay loading the kitchen.
 
 The constant cafe ambience has been removed. Action sounds and stove sizzling still play when those actions happen.
 

@@ -14,7 +14,7 @@ This list separates the assets used in the project from the games used as refere
 
 Keep the included licenses with the project. The source sounds belong inside the game project, not in a separate public sound download.
 
-The music is also credited in the cookbook under **Credits > Music credits** and in [Audio/Music/CREDITS.txt](Audio/Music/CREDITS.txt).
+The music is also credited as plain track and artist names in the cookbook under **Credits > Music credits**. Full source and license details are in [Audio/Music/CREDITS.txt](Audio/Music/CREDITS.txt) and are copied beside the build. The opening bell is `door-bell.wav` from Cozy Cafe SFX, already credited above.
 
 | Music | Use | Creator and license |
 | --- | --- | --- |

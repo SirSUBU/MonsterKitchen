@@ -1,4 +1,18 @@
-# Music and ambience — 6 November 2026
+# Shop opening and plain credits — 6 November 2026
+
+Start cooking now rings the supplied cafe door bell instead of the regular menu confirmation click. The bell survives the change from cookbook to kitchen, finishes its short tail, and removes its temporary object. A repeated start request cannot play another bell once the briefing has opened. Other menu and cooking sounds work as before.
+
+The music credits now show only track names and artists, with one Back option. There are no website or license buttons on that page. The complete credits, source links and license details stay in the project's credit file and beside the Windows build.
+
+The existing music fades and loops are still used. The title tune continues through the briefing; starting service fades to jazz, and both endings fade to Quircky Shop. A track that reaches its end loops until the game requests another one.
+
+**54 live audio checks passed.** These include the actual Enter press on Start cooking, the bell continuing after the scene load, rejection of a repeated start, and removal of the finished bell object. The checks also inspect the middle of music fades, verify all three loop points, and cover pause, mute, both endings, retry and repeated scene changes. There were no runtime console warnings or errors.
+
+The new credits page was visually checked at 1600 x 900. It has only text credits and a Back button; both Back actions return to the main cookbook. The local capture is `Screenshots/music-credits-plain.png`, and the check result is in `Screenshots/opening-music-checks.txt`. As in the previous revision, setup steps seek near song endings and resolve orders quickly. These are targeted Editor checks, not a full natural-speed standalone playthrough.
+
+Windows build `build_2b5190b6767c` succeeded in about 12 seconds with **0 errors** and the same 499 package shader warnings as before. The updated player is at `Builds/Windows/MonsterKitchen.exe`. The Editor is left outside Play mode at Title.
+
+## Previous revision: soundtrack and ambience
 
 The cookbook and briefing now play Lily-Paddling Down the Stream by Fablefly Music. Jazzy Shop by Tim Reichert starts when service begins, and his Quircky Shop plays on both ending screens. The constant kitchen ambience has been removed. Cooking, serving, pickup and menu sounds still play when those actions happen.
 

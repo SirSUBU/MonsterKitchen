@@ -445,14 +445,38 @@ namespace MonsterKitchen.Editor
                     Require(song.isPlaying && song.timeSamples < song.clip.frequency, "song wraps and keeps playing: " + song.clip.name);
                 }
 
+                // Look during a transition as well as after it. Both songs should briefly
+                // be audible, with the old one getting quieter and the new one getting louder.
+                async Task CheckFade(string from, string to)
+                {
+                    await Task.Delay(180);
+                    var sources = MusicPlayer.Instance.GetComponents<AudioSource>();
+                    var outgoing = sources.Single(s => s.clip && s.clip.name == from);
+                    var incoming = sources.Single(s => s.clip && s.clip.name == to);
+                    float level = AudioFeedback.Instance.MusicVolume;
+                    Require(outgoing.isPlaying && incoming.isPlaying && outgoing.volume > 0 && outgoing.volume < level && incoming.volume > 0 && incoming.volume < level, "songs overlap partway through the fade");
+                    float oldLevel = outgoing.volume, newLevel = incoming.volume;
+                    await Task.Delay(120);
+                    Require(outgoing.volume < oldLevel && incoming.volume > newLevel, "both volumes move smoothly toward the next song");
+                }
+
                 var titleSong = await CheckSong("Lily-Paddling Down the Stream");
                 await CheckLoop(titleSong);
                 int before = titleSong.timeSamples;
-                GameSession.Instance.BeginBriefing();
-                await Task.Delay(450);
+                await Press(Key.Enter);
                 Require(GameSession.Instance.State == RunState.Briefing, "kitchen waits at briefing");
                 Require(MusicPlayer.Instance == player && titleSong.isPlaying && titleSong.timeSamples > before, "title song keeps its place across the scene load");
+                var bell = UnityEngine.Object.FindObjectsByType<AudioSource>().SingleOrDefault(a => a.name == "Shop opening bell");
+                Require(bell && bell.isPlaying && !bell.loop && bell.clip.name == "door-bell", "Start cooking rings one bell that survives the scene change");
+                before = bell.timeSamples;
+                await Task.Delay(120);
+                Require(bell.isPlaying && bell.timeSamples > before, "the bell keeps playing its tail in the kitchen");
+                GameSession.Instance.BeginBriefing();
+                Require(UnityEngine.Object.FindObjectsByType<AudioSource>().Count(a => a.name == "Shop opening bell") == 1, "an ignored second start does not ring another bell");
+                await Task.Delay(950);
+                Require(!bell, "the finished bell removes its temporary object");
                 GameSession.Instance.StartShift();
+                await CheckFade("Lily-Paddling Down the Stream", "Jazzy Shop");
                 var jazz = await CheckSong("Jazzy Shop");
                 before = jazz.timeSamples;
                 await Task.Delay(350);
@@ -503,6 +527,7 @@ namespace MonsterKitchen.Editor
                 var resultSong = await CheckSong("Quircky Shop");
                 await CheckLoop(resultSong);
                 session.RestartShift();
+                await CheckFade("Quircky Shop", "Jazzy Shop");
                 await CheckSong("Jazzy Shop");
 
                 guard = 0;
@@ -535,7 +560,7 @@ namespace MonsterKitchen.Editor
                 Require(UnityEngine.Object.FindObjectsByType<MusicPlayer>().Length == 1 && MusicPlayer.Instance == player, "scene changes keep exactly one music player");
                 Require(MusicPlayer.Instance.GetComponents<AudioSource>().Length == 2, "crossfades keep exactly two music sources");
                 Require(UnityEngine.Object.FindObjectsByType<AudioListener>().Length == 1, "only the current scene camera listens to audio");
-                LastResult = checks + " music checks passed (tracks, loops, pause, mute, both endings, retry, scene changes and no ambience).";
+                LastResult = checks + " music checks passed (tracks, loops, fades, opening bell, pause, mute, both endings, retry, scene changes and no ambience).";
                 Debug.Log(LastResult);
                 return LastResult;
             }

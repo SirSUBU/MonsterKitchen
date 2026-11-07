@@ -127,6 +127,8 @@ The restaurant tags also use small world-space Canvases and the same rounded fon
 
 **AudioFeedback.Play("pickup")** looks up a named cue and plays its clip once. It checks both cue arrays before reading them, so an incomplete sound setup stays silent instead of throwing an error. The stove owns its sizzle source because it needs to start and stop with cooking. There is no constant ambience loop.
 
+**AudioFeedback.PlayOpeningBell** is a small exception to scene-owned effects. Start cooking loads a new scene right away, so its bell would be cut off if it used the old menu's source. This method creates a temporary object, keeps it alive across the load, plays the bell once, and removes the object after the recording finishes. `GameSession.BeginBriefing` calls it only after accepting a new start, so a repeated start request cannot ring it twice. The cookbook skips its normal confirmation click for this option.
+
 **AudioFeedback.RefreshMusic** chooses a song from the session state. **MusicPlayer** lives on a separate object that survives scene changes. It has two AudioSources: the outgoing song fades down while the incoming song fades up. The same clip is never started twice, and repeated timer notifications do not restart its fade.
 
 The fade uses unscaled time so it works while gameplay is stopped. Pausing lowers the current song without stopping it. The title song continues through the briefing; gameplay and results switch to their assigned songs. This separation is useful in another game too: keep short effects with scene objects, and give continuous music its own lifetime.

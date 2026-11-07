@@ -35356,6 +35356,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 11b74d487daf4ec439721b203838c3c1, type: 3}
   - {fileID: 8300000, guid: 539fe3c9a7a82864880c165ff0e43445, type: 3}
   - {fileID: 8300000, guid: 5d6a6d45c3bb4ed458f170c6cbc4c4f1, type: 3}
+  OpeningBell: {fileID: 8300000, guid: 16b9699d8d8fbb14eb051f28c363426d, type: 3}
   TitleMusic: {fileID: 8300000, guid: 17a7f8d64c6b6d44681f3539188c6057, type: 3}
   GameplayMusic: {fileID: 8300000, guid: 64a18bc39548f5549a15c748cf04d70f, type: 3}
   ResultsMusic: {fileID: 8300000, guid: 1cd48c1bbd918bc4da1db37639b8e172, type: 3}

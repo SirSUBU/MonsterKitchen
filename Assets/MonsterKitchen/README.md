@@ -58,4 +58,4 @@ Game design: **Saubdiel Avalos**. The models and character animations are **KayK
 
 The cookbook was inspired by **Undercooked: Cook It Now**. The supplied **Overcooked** references and **Restaurant UI by Nielisson** helped guide the paper menus and results presentation. Their artwork and game code were not imported. Full links and license notes are in the source list above.
 
-The cookbook and briefing use Lily-Paddling Down the Stream, gameplay uses Jazzy Shop, and both endings use Quircky Shop. The constant ambience loop has been removed. Music credits and license links are also available inside the cookbook.
+The cookbook and briefing use Lily-Paddling Down the Stream, gameplay uses Jazzy Shop, and both endings use Quircky Shop. The songs loop and fade between screens. Start cooking rings the shop's door bell. The constant ambience loop has been removed. The cookbook has simple text music credits; full source and license details are included in the credit file beside the build.

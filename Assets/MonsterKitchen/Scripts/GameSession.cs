@@ -112,6 +112,8 @@ namespace MonsterKitchen
         {
             if (resetting || resolving || loadingScene || State != RunState.Title)
                 return;
+            // Ring once for this accepted Start cooking action, before changing scenes.
+            AudioFeedback.PlayOpeningBell();
             if (IsTitleScene && Application.CanStreamedLevelBeLoaded("Kitchen"))
             {
                 loadingScene = true;
