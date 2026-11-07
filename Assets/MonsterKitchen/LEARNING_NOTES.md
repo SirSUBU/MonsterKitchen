@@ -119,6 +119,10 @@ Order slips work differently: **RefreshHUD** reads live tickets every frame. The
 
 The cookbook uses a world-space Canvas above the 3D pages. **CookbookMenu.Show** replaces the page lettering and options; **CookbookSceneBuilder** created the saved book meshes and props.
 
+The restaurant tags also use small world-space Canvases and the same rounded font. Each station holds a **StatusLabel** reference to its TMP text. **KitchenStation.Update** changes that text to Raw, Cooked, Charred or Ash while food is on a stove; otherwise it shows the station's short name. The number badges match the order slips' counter numbers. These labels do not receive mouse clicks.
+
+**KitchenSceneBuilder.UpdateRestaurantLettering** restyles these tags without rebuilding the kitchen. The cream backing uses KitchenPaperImage, just like the menus. The stove tags have extra width for Charred. The wall sign stays fixed to the restaurant, while **FaceCamera** keeps station tags facing the player. You can edit the saved tag Canvases directly in the Kitchen scene.
+
 ## Sound
 
 **AudioFeedback.Play("pickup")** looks up a named cue and plays its clip once. Ambience and optional music use their own looping AudioSources, so an effect does not interrupt them. The stove owns its sizzle source because it needs to start and stop with cooking.

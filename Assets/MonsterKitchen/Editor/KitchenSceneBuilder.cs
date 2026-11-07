@@ -9,6 +9,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 namespace MonsterKitchen.Editor
 {
@@ -177,8 +178,6 @@ namespace MonsterKitchen.Editor
                 station.ServiceSlot = i;
                 station.ItemAnchor.localPosition = new Vector3(0, 1.05f, 0);
                 Visual("plate", station.transform, new Vector3(.55f, 1.05f, 0), .48f);
-                var number = Label((i + 1).ToString(), new Vector3(x, 1.12f, 1.94f), .22f, cream.color, details);
-                number.gameObject.name = "Serving position " + (i + 1);
             }
 
             Cube("Customer rail left", new Vector3(-5.4f, .6f, 2.6f), new Vector3(3.25f, 1.2f, .8f), teal, furniture, true);
@@ -224,8 +223,7 @@ namespace MonsterKitchen.Editor
             Visual("jar_A_large", details, new Vector3(-4.3f, 1.22f, 2.6f), .35f);
             Visual("jar_B_large", details, new Vector3(-4.9f, 1.22f, 2.6f), .4f);
             Visual("menu", details, new Vector3(4.7f, 1.2f, 2.65f), .5f);
-            Sign("MONSTER KITCHEN", new Vector3(0, 2.05f, 8.32f), 5.5f, .58f);
-            Sign("GOOD FOOD. STRANGE TASTES.", new Vector3(0, 1.48f, 8.31f), 4.2f, .32f);
+            Sign("Monster Kitchen", new Vector3(0, 1.48f, 8.25f), 5.5f, .86f);
             for (int i = 0; i < 11; i++)
             {
                 float x = -5 + i;
@@ -278,6 +276,9 @@ namespace MonsterKitchen.Editor
                 Visual("Tiefling", details, new Vector3(1.4f, 0, 3.9f), 1.8f, true, 180);
             }
 
+            // Use the same lettering pass as an existing scene, after food kinds and slots are assigned.
+            if (!titleScene)
+                UpdateRestaurantLettering();
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene, Root + "/Scenes/" + scene.name + ".unity");
         }
@@ -296,7 +297,8 @@ namespace MonsterKitchen.Editor
             Cube("Entrance jamb near", new Vector3(7.1f, 1.4f, 4.3f), new Vector3(.32f, 2.8f, .3f), wood, area, false);
             Cube("Entrance jamb far", new Vector3(7.1f, 1.4f, 7.2f), new Vector3(.32f, 2.8f, .3f), wood, area, false);
             Cube("Entrance lintel", new Vector3(7.1f, 2.85f, 5.75f), new Vector3(.38f, .25f, 3.2f), wood, area, false);
-            var welcome = Label("OPEN", new Vector3(7.1f, 3.25f, 5.75f), .18f, cream.color, area);
+            var welcome = Label("Open", new Vector3(7.1f, 3.25f, 5.75f), .14f, ColorHex("49352B"), area);
+            welcome.transform.parent.name = "Door sign";
             BackLabel(welcome, 1.15f);
             // Table and chair footprints stay north of both walking lanes.
             foreach (float x in new[]
@@ -340,16 +342,36 @@ namespace MonsterKitchen.Editor
             collider.AddComponent<BoxCollider>().size = bounds.size;
         }
 
-        // Put a dark backing behind a station label to keep its words readable over the room.
-        static void BackLabel(TextMesh label, float width)
+        // Cream paper and warm ink match the order slips. Dimensions are given in world units,
+        // then converted to UI units because the little Canvas is scaled to one hundredth size.
+        static void BackLabel(TMP_Text label, float width, float height = .52f, bool round = false)
         {
-            var plate = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            plate.name = "Readable label backing";
-            plate.transform.SetParent(label.transform, false);
-            plate.transform.localPosition = new Vector3(0, 0, .035f);
-            plate.transform.localScale = new Vector3(width, .34f, .025f);
-            UnityEngine.Object.DestroyImmediate(plate.GetComponent<Collider>());
-            plate.GetComponent<Renderer>().sharedMaterial = dark;
+            var canvas = (RectTransform)label.transform.parent;
+            canvas.sizeDelta = new Vector2(width * 100, height * 100);
+            float corner = round ? height * 50 : 12;
+            TagPaper(canvas, "Soft shadow", new Vector2(1, -3), canvas.sizeDelta, ColorHex("806C59"), corner);
+            TagPaper(canvas, "Paper edge", Vector2.zero, canvas.sizeDelta, ColorHex("C7AB88"), corner);
+            TagPaper(canvas, "Cream paper", Vector2.zero, canvas.sizeDelta - Vector2.one * 3, ColorHex("FFF9E8"), corner - 1);
+            label.transform.SetAsLastSibling();
+        }
+
+        // Reuse a tag's existing shapes when restyling it, so running the tool twice does not add copies.
+        static void TagPaper(RectTransform parent, string name, Vector2 position, Vector2 size, Color color, float corner)
+        {
+            var child = parent.Find(name) as RectTransform;
+            if (!child)
+            {
+                child = new GameObject(name, typeof(RectTransform), typeof(KitchenPaperImage)).GetComponent<RectTransform>();
+                child.SetParent(parent, false);
+            }
+            child.anchorMin = child.anchorMax = child.pivot = new Vector2(.5f, .5f);
+            child.anchoredPosition = position;
+            child.sizeDelta = size;
+            var paper = child.GetComponent<KitchenPaperImage>();
+            paper.Corner = corner;
+            paper.color = color;
+            paper.raycastTarget = false;
+            child.SetAsLastSibling();
         }
 
         // Create both a solid counter and a separate interaction trigger around its approach point.
@@ -388,7 +410,7 @@ namespace MonsterKitchen.Editor
             station.Highlight = highlight;
             highlight.SetActive(false);
             station.StatusLabel = Label(name, position + new Vector3(0, 1.75f, 0), .14f, cream.color, go.transform);
-            BackLabel(station.StatusLabel, type == StationType.Hotplate ? 2.1f : Mathf.Max(1.65f, width));
+            BackLabel(station.StatusLabel, 1.65f);
             return station;
         }
 
@@ -398,9 +420,9 @@ namespace MonsterKitchen.Editor
         {
             // Keep the plate above the supplied stove model's actual upper surface.
             Renderer[] renderers = station.GetComponentsInChildren<Renderer>();
-            float top = renderers.Where(r => !r.transform.IsChildOf(station.StatusLabel.transform)).Max(r => r.bounds.max.y);
+            float top = renderers.Where(r => !r.transform.IsChildOf(station.StatusLabel.transform.parent)).Max(r => r.bounds.max.y);
             station.ItemAnchor.position = new Vector3(station.transform.position.x, Mathf.Max(1.05f, top + .04f), station.transform.position.z);
-            station.StatusLabel.transform.position = station.ItemAnchor.position + Vector3.up * .75f;
+            station.StatusLabel.transform.parent.position = station.ItemAnchor.position + Vector3.up * .75f;
             var bar = new GameObject("Heat progress");
             bar.transform.SetParent(station.transform, false);
             bar.transform.position = station.ItemAnchor.position + Vector3.up * .48f;
@@ -518,33 +540,127 @@ namespace MonsterKitchen.Editor
             go.AddComponent<BoxCollider>().size = size;
         }
 
-        // Make a readable world-space label and keep it facing the game camera.
-        static TextMesh Label(string text, Vector3 position, float size, Color color, Transform parent)
+        // Put rounded TMP lettering on a small world-space Canvas. It belongs to the station,
+        // so moving that station in the Editor also moves its tag. It never intercepts clicks.
+        static TMP_Text Label(string text, Vector3 position, float size, Color color, Transform parent)
         {
-            var go = new GameObject(text + " label");
+            var go = new GameObject(text + " tag", typeof(RectTransform), typeof(Canvas));
             go.transform.SetParent(parent, true);
             go.transform.position = position;
-            var mesh = go.AddComponent<TextMesh>();
-            mesh.text = text;
-            mesh.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            mesh.fontSize = 72;
-            mesh.characterSize = size * .3f;
-            mesh.anchor = TextAnchor.MiddleCenter;
-            mesh.alignment = TextAlignment.Center;
-            mesh.fontStyle = FontStyle.Bold;
-            mesh.color = color;
-            go.GetComponent<MeshRenderer>().sharedMaterial = mesh.font.material;
+            go.transform.localScale = Vector3.one * .01f;
+            go.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            var rect = go.GetComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(200, 52);
+            var label = new GameObject("Lettering", typeof(RectTransform), typeof(TextMeshProUGUI)).GetComponent<TextMeshProUGUI>();
+            label.transform.SetParent(go.transform, false);
+            label.rectTransform.anchorMin = Vector2.zero;
+            label.rectTransform.anchorMax = Vector2.one;
+            label.rectTransform.offsetMin = new Vector2(8, 2);
+            label.rectTransform.offsetMax = new Vector2(-8, -2);
+            label.font = Resources.Load<TMP_FontAsset>("UI/KitchenRounded");
+            label.text = text;
+            label.fontSize = size * 260;
+            label.alignment = TextAlignmentOptions.Center;
+            label.textWrappingMode = TextWrappingModes.NoWrap;
+            label.overflowMode = TextOverflowModes.Overflow;
+            label.color = color;
+            label.raycastTarget = false;
             go.AddComponent<FaceCamera>();
-            return mesh;
+            if (Camera.main)
+                go.transform.rotation = Camera.main.transform.rotation;
+            return label;
         }
 
         // Unlike a station label, this sign stays attached to its wall instead of facing the camera.
         static void Sign(string text, Vector3 position, float width, float height)
         {
-            Cube("Menu sign backing", position, new Vector3(width, height, .07f), dark, details, false);
-            var label = Label(text, position + Vector3.back * .07f, height * .40f, cream.color, details);
-            UnityEngine.Object.DestroyImmediate(label.GetComponent<FaceCamera>());
-            label.transform.rotation = Quaternion.identity;
+            var label = Label(text, position, .22f, ColorHex("49352B"), details);
+            var canvas = label.transform.parent;
+            canvas.name = "Restaurant sign";
+            BackLabel(label, width, height);
+            UnityEngine.Object.DestroyImmediate(canvas.GetComponent<FaceCamera>());
+            canvas.rotation = Quaternion.identity;
+        }
+
+        // Update only the restaurant's lettering. Counters, colliders, routes and props keep
+        // their saved positions. This is also called after building a brand-new Kitchen scene.
+        public static string UpdateRestaurantLettering()
+        {
+            var scene = EditorSceneManager.GetActiveScene();
+            if (EditorApplication.isPlaying || scene.name != "Kitchen")
+                throw new InvalidOperationException("Open Kitchen outside Play mode before updating its lettering.");
+            var stations = UnityEngine.Object.FindObjectsByType<KitchenStation>();
+            foreach (var station in stations)
+            {
+                var old = station.GetComponentInChildren<TextMesh>();
+                if (!station.StatusLabel)
+                {
+                    Vector3 position = old ? old.transform.position : station.transform.position + Vector3.up * 1.75f;
+                    station.StatusLabel = Label("", position, .14f, ColorHex("49352B"), station.transform);
+                }
+                // Connect the new label before removing the old text object and its dark backing.
+                if (old)
+                    UnityEngine.Object.DestroyImmediate(old.gameObject);
+                // The objects keep their descriptive Inspector names. These shorter captions
+                // are the words the player sees, with enough room for the longest cooking state.
+                float width;
+                switch (station.Type)
+                {
+                    case StationType.Serve:
+                        station.DisplayName = (station.ServiceSlot + 1).ToString();
+                        width = .64f;
+                        break;
+                    case StationType.Supply:
+                        station.DisplayName = station.SupplyFood == FoodKind.Ham ? "Ham" : "Patties";
+                        width = station.SupplyFood == FoodKind.Ham ? 1.05f : 1.5f;
+                        break;
+                    case StationType.Hotplate:
+                        station.DisplayName = "Stove";
+                        width = 1.65f;
+                        break;
+                    case StationType.Counter:
+                        station.DisplayName = "Counter";
+                        width = 1.65f;
+                        break;
+                    default:
+                        station.DisplayName = "Bin";
+                        width = 1.05f;
+                        break;
+                }
+                var label = station.StatusLabel;
+                label.text = station.DisplayName;
+                label.color = ColorHex("49352B");
+                label.fontSize = station.Type == StationType.Serve ? 40 : 36;
+                label.transform.parent.name = "Station tag";
+                bool number = station.Type == StationType.Serve;
+                BackLabel(label, width, number ? .64f : .52f, number);
+                if (number)
+                    label.transform.parent.position = station.transform.position + new Vector3(0, 1.42f, -.47f);
+                EditorUtility.SetDirty(station);
+            }
+
+            // The numbered badges replace the duplicate SERVICE labels and counter numbers.
+            // A single wall sign replaces the old title/tagline pair.
+            var oldSigns = UnityEngine.Object.FindObjectsByType<TextMesh>().Where(t =>
+                t.text == "OPEN" || t.text == "MONSTER KITCHEN" || t.text == "GOOD FOOD. STRANGE TASTES."
+                || t.name.StartsWith("Serving position ", StringComparison.Ordinal)).ToArray();
+            foreach (var old in oldSigns)
+            {
+                if (old.text == "OPEN")
+                {
+                    var open = Label("Open", old.transform.position, .14f, ColorHex("49352B"), old.transform.parent);
+                    open.transform.parent.name = "Door sign";
+                    BackLabel(open, 1.15f);
+                }
+                UnityEngine.Object.DestroyImmediate(old.gameObject);
+            }
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>().Where(t => t.name == "Menu sign backing").ToArray())
+                UnityEngine.Object.DestroyImmediate(t.gameObject);
+            details = GameObject.Find("03 - Restaurant details").transform;
+            if (!details.Find("Restaurant sign"))
+                Sign("Monster Kitchen", new Vector3(0, 1.48f, 8.25f), 5.5f, .86f);
+            EditorSceneManager.MarkSceneDirty(scene);
+            return "Updated " + stations.Length + " station tags and restaurant signs.";
         }
 
         // Turn a written color value into a Unity Color.

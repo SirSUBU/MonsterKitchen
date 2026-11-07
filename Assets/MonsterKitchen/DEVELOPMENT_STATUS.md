@@ -1,4 +1,16 @@
-# Fixes and checks — 6 November 2026
+# Restaurant lettering — 6 November 2026
+
+The restaurant now uses the menus' rounded Fredoka lettering. Cream station tags replace the dark, all-caps labels. The three serving counters have number badges that match the order slips. Equipment uses short names: Patties, Ham, Stove, Counter and Bin.
+
+The wall has one Monster Kitchen sign, without the old tagline. It sits below the awning so its lettering is fully visible. The entrance uses a matching Open sign. Cooking labels use dark ink, green for Cooked, and terracotta for Charred or Ash.
+
+The saved scene has ten connected TMP station labels, no remaining legacy TextMesh labels, and no missing scripts. The room's colliders and their positions were checked before and after the lettering update and are unchanged. Raw, Cooked, Charred and Ash were checked against their displayed text and available label space. The widescreen preview was inspected in Play mode, with no live console errors or warnings during that check.
+
+The local preview is `Screenshots/restaurant-lettering-preview.png`. Cooking states were set up for this screenshot so both Cooked and Charred can be seen together. This was a focused lettering check; the previous revision's full gameplay checks are recorded below.
+
+Windows build `build_13729d3e4014` succeeded in about 15 seconds with 0 errors. Unity reported the same 499 package shader warnings as the preceding build. The updated player is at `Builds/Windows/MonsterKitchen.exe`; the visual checks above were done in the Editor.
+
+## Previous revision: ending and title fixes
 
 ## Leaving the kitchen and finishing a shift
 

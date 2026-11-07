@@ -2,6 +2,7 @@
 // PlayerChef chooses a reachable station; this script decides what E or Space does there.
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace MonsterKitchen
 {
@@ -26,7 +27,8 @@ namespace MonsterKitchen
         public Transform ItemAnchor, ReachPoint;
         public float ReachRadius = 1.3f;
         public GameObject Highlight;
-        public TextMesh StatusLabel;
+        // The scene uses the same rounded TMP font as the paper menus.
+        public TMP_Text StatusLabel;
         public Transform ProgressFill;
         public ParticleSystem Steam;
         public AudioSource Sizzle;
@@ -82,13 +84,17 @@ namespace MonsterKitchen
             {
                 if (Type == StationType.Hotplate && Item)
                 {
-                    StatusLabel.text = KitchenRules.StateName(Item.Heat).ToUpperInvariant();
-                    StatusLabel.color = KitchenAssets.HeatColor(Item.Heat);
+                    StatusLabel.text = KitchenRules.StateName(Item.Heat);
+                    // Dark ink stays readable on the cream station tag. Keep the progress bar's
+                    // brighter food colors separate from the lettering.
+                    StatusLabel.color = Item.Heat == HeatState.Cooked ? new Color(.32f, .42f, .23f)
+                        : Item.Heat == HeatState.Charred || Item.Heat == HeatState.Ash ? new Color(.65f, .31f, .24f)
+                        : new Color(.29f, .21f, .17f);
                 }
                 else
                 {
                     StatusLabel.text = DisplayName;
-                    StatusLabel.color = highlighted ? new Color(.64f, 1, .80f) : new Color(1, .91f, .72f);
+                    StatusLabel.color = highlighted ? new Color(.32f, .42f, .23f) : new Color(.29f, .21f, .17f);
                 }
             }
 
